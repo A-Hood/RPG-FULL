@@ -14,4 +14,8 @@ int* Wand();
 
 int* Daggers();
 
+void Type(std::string str, int speed);
 
+void JobLBL(std::string job);
+
+void WeaponLBL(std::string weapon);

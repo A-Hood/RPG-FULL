@@ -15,10 +15,13 @@ int* Wand() // WAND CAN ATTACK 2-4 TIMES RANDOM NUM
 	{
 		wand[0] = 5;
 		wand[1] = 1;
+
 		std::cout << "\n\n";
-		std::cout << "Pew...!\n";
-		std::this_thread::sleep_for(std::chrono::milliseconds(400)); // WAIT
-		std::cout << "Miss...\n";
+		Type("Pew...!", 30);
+		std::cout << "\n";
+		std::this_thread::sleep_for(std::chrono::milliseconds(300)); // WAIT
+		Type("Miss...", 60);
+		std::cout << "\n";
 	}
 
 	else if (randAttackAmmount == 2) // 2 TIMES
@@ -28,8 +31,9 @@ int* Wand() // WAND CAN ATTACK 2-4 TIMES RANDOM NUM
 		std::cout << "\n\n";
 		for (int i = 0; i < 2; i++)
 		{
-			std::cout << "Pew...!\n";
-			std::this_thread::sleep_for(std::chrono::milliseconds(400)); // WAIT
+			Type("Pew...!", 30);
+			std::cout << "\n";
+			std::this_thread::sleep_for(std::chrono::milliseconds(300)); // WAIT
 		}
 	}
 
@@ -40,8 +44,9 @@ int* Wand() // WAND CAN ATTACK 2-4 TIMES RANDOM NUM
 		std::cout << "\n\n";
 		for (int i = 0; i < 3; i++)
 		{
-			std::cout << "Pew...!\n";
-			std::this_thread::sleep_for(std::chrono::milliseconds(400)); // WAIT
+			Type("Pew...!", 30);
+			std::cout << "\n";
+			std::this_thread::sleep_for(std::chrono::milliseconds(300)); // WAIT
 		}
 	}
 	
@@ -52,8 +57,9 @@ int* Wand() // WAND CAN ATTACK 2-4 TIMES RANDOM NUM
 		std::cout << "\n\n";
 		for (int i = 0; i < 3; i++)
 		{
-			std::cout << "Pew...!\n";
-			std::this_thread::sleep_for(std::chrono::milliseconds(400)); // WAIT
+			Type("Pew...!", 30);
+			std::cout << "\n";
+			std::this_thread::sleep_for(std::chrono::milliseconds(300)); // WAIT
 		}
 	}
 
@@ -71,9 +77,10 @@ int* Daggers() // DAGGERS CAN ATTACK 1-3 TIMES RANDOM NUM
 		daggers[0] = 7;
 		daggers[1] = 1;
 		std::cout << "\n\n";
-		std::cout << "Slash...!\n";
-		std::this_thread::sleep_for(std::chrono::milliseconds(400)); // WAIT
-		std::cout << "Miss...\n";
+		Type("Slash...!", 30);
+		std::cout << "\n";
+		std::this_thread::sleep_for(std::chrono::milliseconds(300)); // WAIT
+		Type("Miss...", 60);
 	}
 
 	else if (randAttackAmmount == 2) // 2 TIMES
@@ -83,8 +90,9 @@ int* Daggers() // DAGGERS CAN ATTACK 1-3 TIMES RANDOM NUM
 		std::cout << "\n\n";
 		for (int i = 0; i < 2; i++)
 		{
-			std::cout << "Slash...!\n";
-			std::this_thread::sleep_for(std::chrono::milliseconds(400)); // WAIT
+			Type("Slash...!", 30);
+			std::cout << "\n";
+			std::this_thread::sleep_for(std::chrono::milliseconds(300)); // WAIT
 		}
 	}
 
@@ -95,8 +103,9 @@ int* Daggers() // DAGGERS CAN ATTACK 1-3 TIMES RANDOM NUM
 		std::cout << "\n\n";
 		for (int i = 0; i < 3; i++)
 		{
-			std::cout << "Slash...!\n";
-			std::this_thread::sleep_for(std::chrono::milliseconds(400)); // WAIT
+			Type("Slash...!", 30);
+			std::cout << "\n";
+			std::this_thread::sleep_for(std::chrono::milliseconds(300)); // WAIT
 		}
 	}
 

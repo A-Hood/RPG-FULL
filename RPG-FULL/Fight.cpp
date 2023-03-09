@@ -14,6 +14,7 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	bool dodge = false;
 	int pDamage, eDamage;
 	int attackChoice;
+	int speed;
 	std::string pause;
 	// end of the mess shhhhhh...
 	
@@ -31,13 +32,18 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 
 
 	// ENCOUNTER BEGIN!
-	std::cout << "\n\n=!=!= ENCOUTER ALERT! =!=!=\n\n";
+	std::cout << "\n\n\n";
+	Type("=!=!= ENCOUNTER ALERT =!=!=", 40);
+	std::cout << "\n\n";
 
-	std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-
-	std::cout << "You encountered a " << enemyName << "!\n";
-	std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-	std::cout << "\nAre you ready to fight? (Press enter to start!)";
+	std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+	
+	Type("You encountered a ", 60);
+	Type(enemyName + "!", 150);
+	std::cout << "\n\n";
+	
+	std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+	Type("Are you ready to fight? (Enter any letter then press enter to start!) ", 40);
 	
 	// PRESS ENTER
 	std::cin >> pause;
@@ -48,7 +54,9 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	
 	// FIRST ATTACK
 	std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-	std::cout << "\n\nYou go first! Would you like to:\n\n#1: Attack\n#2: Dodge\n\nChoice: ";
+	std::cout << "\n\n";
+	Type("You go first! ", 60);
+	Type("Would you like to: \n\n#1: Attack\n#2: Dodge\n\nChoice: ", 80);
 	std::cin >> attackChoice;
 	// FIRST ATTACK END
 	while (fight = true) // FIGHT OVER?
@@ -58,19 +66,28 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 			// ATTACKING CHOICE
 			if (attackChoice == 1)
 			{
-				pDamage = rand() % (ptrEProfile[2] - ptrEProfile[1] - 1) + ptrEProfile[1]; // RANDOM NUMBER BETWEEN PLAYERS DAMAGEMAX AND DAMAGEMIN
+				pDamage = rand() % (ptrPProfile[2] - ptrPProfile[1] - 1) + ptrPProfile[1]; // RANDOM NUMBER BETWEEN PLAYERS DAMAGEMAX AND DAMAGEMIN
 				if (ptrPDetails[1] == "daggers")
 				{
 					ptrDaggers = Daggers();
-					std::cout << "\n\nYou attacked ";
-					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-					std::cout << ptrDaggers[1] << " times!\n";
-					std::cout << "You dealt ";
-					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-					std::cout << "" << ptrDaggers[0] << " damage!";
+					std::cout << "\n\n";
+					Type("You attacked ", 60);
+					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+					std::cout << ptrDaggers[1]; 
+					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+					Type(" times!", 60);
+					std::cout << "\n";
+					Type("You dealt ", 60);
+					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+					std::cout << ptrDaggers[0];
+					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+					Type(" damage!", 60);
 					ptrEProfile[0] = ptrEProfile[0] - ptrDaggers[0]; // ENEMY HEALTH - PLAYER DAMAGE
 					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-					std::cout << "\n\nThe enemy " << enemyName << " is on " << ptrEProfile[0] << " health!\n\n";
+					std::cout << "\n\n";
+					Type("The enemy " + enemyName + " is on ", 60); 
+					std::cout << ptrEProfile[0];
+					Type(" health!\n\n", 60);
 					attackChoice = 0;
 					valid = true;
 					break;
@@ -78,15 +95,23 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 				else if (ptrPDetails[1] == "wand")
 				{
 					ptrWand = Wand();
-					std::cout << "\n\nYou attacked ";
-					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-					std::cout << ptrWand[1] << " times!\n";
-					std::cout << "You dealt ";
-					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-					std::cout << "" << ptrWand[0] << " damage!";
+					std::cout << "\n\n";
+					Type("You attacked ", 60);
+					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+					std::cout << ptrWand[1];
+					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+					Type(" times!\n", 60);
+					Type("You dealt ", 60);
+					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+					std::cout << ptrWand[0];
+					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+					Type(" damage!", 60);
 					ptrEProfile[0] = ptrEProfile[0] - ptrWand[0]; // ENEMY HEALTH - PLAYER DAMAGE
 					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-					std::cout << "\n\nThe enemy " << enemyName << " is on " << ptrEProfile[0] << " health!\n\n";
+					std::cout << "\n\n";
+					Type("The enemy " + enemyName + " is on ", 60);
+					std::cout << ptrEProfile[0];
+					Type(" health!\n\n", 60);
 					attackChoice = 0;
 					valid = true;
 					break;
@@ -94,12 +119,22 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 
 				else 
 				{
-					std::cout << "\n\nYour attack did ";
-					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-					std::cout << "" << pDamage << " damage!";
+					std::cout << "\n\n";
+					speed = 70;
+					Type("Your attack did ", speed);
+					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+					std::cout << pDamage; 
+					Type(" damage!", speed);
 					ptrEProfile[0] = ptrEProfile[0] - pDamage; // ENEMY HEALTH - PLAYER DAMAGE
 					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-					std::cout << "\n\nThe enemy " << enemyName << " is on " << ptrEProfile[0] << " health!\n\n";
+					std::cout << "\n\n";
+					speed = 60;
+					Type("The enemy " + enemyName + " is on ", speed);
+					std::this_thread::sleep_for(std::chrono::milliseconds(200)); // WAIT
+					std::cout << ptrEProfile[0];
+					Type(" health!\n\n", speed);
+					std::this_thread::sleep_for(std::chrono::milliseconds(100));
+					std::cout << "\n";
 					attackChoice = 0;
 					valid = true;
 				}
@@ -109,7 +144,9 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 			else if (attackChoice == 2)
 			{
 				dodge = true;
-				std::cout << "\nYou will dodge the next attack from the enemy " << enemyName << "!";
+				Type("\nYou will dodge the next attack from the enemy ", 60);
+				Type(enemyName + "!", 60);
+				std::cout << "\n\n";
 				attackChoice = 0;
 				valid = true;
 			}
@@ -117,14 +154,14 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 			// INVALID OPTIONS
 			else if (attackChoice < 1)
 			{
-				std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-				std::cout << "Attack choice invalid!\n\nRe-enter a correct choice: ";
+				std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+				Type("Attack choice invalid!\n\nRe - enter a correct choice : ", speed);
 				std::cin >> attackChoice;
 			}
 			else if (attackChoice > 2) 
 			{
-				std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-				std::cout << "Attack choice invalid!\n\nRe-enter a correct choice: ";
+				std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+				Type("Attack choice invalid!\n\nRe - enter a correct choice : ", speed);
 				std::cin >> attackChoice;
 			}
 			// INVALID OPTIONS OVER
@@ -135,9 +172,14 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 		if (ptrEProfile[0] <= 0) // CHECKS IF ENEMY HEALTH IS UNDER OR EQUAL TO 0
 		{
 			std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-			std::cout << "\n\nEnemy has been slain!";
+			std::cout << "\n\n";
+			speed = 80;
+			Type("Enemy has been slain!", speed);
 			ptrPProfile[5] = ptrPProfile[5] + 1; // ADDS A KILL
-			std::cout << "\n\nYou have now killed " << ptrPProfile[5] << " enemies!"; // OUTPUTS AMOUNT OF KILLS
+			std::cout << "\n\n";
+			Type("You have now killed ", speed);
+			std::cout << ptrPProfile[5];
+			Type(" enemies!", speed); // OUTPUTS AMOUNT OF KILLS
 			eDead = false; // ENEMY DEAD
 			fight = false; // FIGHT OVER
 			break; // RUNS NEXT PART
@@ -146,23 +188,33 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 		else if (ptrEProfile[0] > 0)
 		{
 			std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-			std::cout << "\n\nThe enemy " << enemyName << " is now attacking!";
+			std::cout << "\n";
+			speed = 70;
+			Type("The enemy " + enemyName + " is now attacking!", speed);
 			eDamage = rand() % (ptrEProfile[2] - ptrEProfile[1] + 1) + ptrEProfile[1]; // RANDOM NUMBER BETWEEN ENEMIES DAMAGEMIN AND DAMAGEMAX
 			std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
 
 			//CHECKS IF USER CHOSE DODGE
 			if (dodge == true) // USER CHOSE DODGE
 			{
-				std::cout << "\n\nYou dodged the attack!";
+				Type("\n\nYou dodged the attack!", speed);
 			}
 			else if (dodge == false) // USER DID NOT CHOOSE DODGE
 			{
-				std::cout << "\n\nYou were attacked for ";
-				std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-				std::cout << eDamage << " damage!";
-				std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
+				std::cout << "\n\n";
+				speed = 60;
+				Type("You were attacked for ", speed);
+				std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+				std::cout << eDamage;
+				std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+				Type(" damage!", speed);
+				std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
 				ptrPProfile[0] = ptrPProfile[0] - eDamage; // PLAYER HEALTH - ENEMY DAMAGE
-				std::cout << "You are now on " << ptrPProfile[0] << " health!"; // DISPLAYS CURRENT HEALTH
+				std::cout << "\n\n";
+				Type("You are now on ", speed);
+				std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
+				std::cout << ptrPProfile[0];
+				Type(" health!", speed); // DISPLAYS CURRENT HEALTH
 			}
 		}
 
@@ -171,16 +223,23 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 			pDead = true; // PLAYER DEAD
 			fight = false; // FIGHT OVER
 			std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-			std::cout << "\n\nYou are dead! You killed " << ptrPProfile[5] << " enemies!"; // DISPLAYS HOW MANY ENEMIES YOU KILLED
+			Type("\n\nYou are dead! You killed ", 100);
+			std::this_thread::sleep_for(std::chrono::milliseconds(100)); // WAIT
+			std::cout << ptrPProfile[5];
+			std::this_thread::sleep_for(std::chrono::milliseconds(100)); // WAIT
+			Type(" enemies!", 100); // DISPLAYS HOW MANY ENEMIES YOU KILLED
 			std::cin.get();
 			exit(0);
 		}
 		
-		std::cout << "\n\n\nIt is your turn to attack again! What would you like to do?\n\nChoice: ";
+		std::cout << "\n\n\n";
+		Type("It is your turn to attack again! What would you like to do?\n\n#1: Attack!\n#2: Dodge", 60);
+		std::cout << "\n\n";
+		Type("Choice: ", 60);
 		std::cin >> attackChoice;
 	}
 
-	std::cout << "\n\nDEBUG: ENCOUNTER OVER!";
+	std::cout << "\n\n\nDEBUG: ENCOUNTER OVER!\n";
 	// ENCOUNTER OVER!
 
 	return ptrPProfile[0];

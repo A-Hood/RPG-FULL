@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Fight.cpp" />
+    <ClCompile Include="LetterByLetter.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="WeaponSpecifics.cpp" />
