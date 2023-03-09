@@ -6,7 +6,7 @@ std::string* PlayerDetails(int* ptrPProfile);
 
 int* EnemyProfile(int enemySpawnType);
 
-int Fight(int* ptrPProfile, std::string enemyName, int enemySpawnType);
+int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int enemySpawnType);
 
 std::string EnemyName(int* ptrEProfile, std::string enemyName);
 

@@ -26,7 +26,7 @@ int main()
 
 	// FOR DEBUG!: std::cout << "\n\n=======================================\n\nDEBUG!!!\n\nArray PlayerProfile: " << ptrPProfile[0] << " " << ptrPProfile[1] << " " << ptrPProfile[2] << " " << ptrPProfile[3] << " " << ptrPProfile[4] << "\n\nArray PlayerDetails: " << ptrPDetails[0] << " " << ptrPDetails[1] << "\n\nEnemy Name: " << enemyName << "\n\n======================================\n";
 
-	Fight(ptrPProfile, enemyName, enemySpawnType);
+	Fight(ptrPProfile, ptrPDetails, enemyName, enemySpawnType);
 
 	std::cin.get();
 }

@@ -3,7 +3,7 @@
 
 int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, int playerMaxDamage)
 {
-	static int playerProfile[5];
+	static int playerProfile[6];
 	int weaponChoice;
 
 	std::cout << "What class do you wish to be:\n\n#1: Knight\n#2: Rogue\n#3: Mage\n\nChoice: ";
@@ -41,7 +41,7 @@ int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, i
 	else if (characterChoice == 2)
 	{
 		playerHealth = 100;
-		std::cout << "\nWhat weapon do you wish to weild: \n\n#1: Sword\n#2: Axe\n#3: Mace\n\nChoice: ";
+		std::cout << "\nWhat weapon do you wish to weild: \n\n#1: Bow\n#2: Daggers\n#3: Scimitar\n\nChoice: ";
 		std::cin >> weaponChoice;
 
 		if (weaponChoice == 1)
@@ -68,7 +68,7 @@ int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, i
 	else if (characterChoice == 3)
 	{
 		playerHealth = 75;
-		std::cout << "\nWhat weapon do you wish to weild: \n\n#1: Sword\n#2: Axe\n#3:Mace\n\nChoice: ";
+		std::cout << "\nWhat weapon do you wish to weild: \n\n#1: Staff\n#2: Wand\n#3: Runebook\n\nChoice: ";
 		std::cin >> weaponChoice;
 
 		if (weaponChoice == 1)
@@ -97,6 +97,7 @@ int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, i
 	playerProfile[2] = playerMaxDamage;
 	playerProfile[3] = characterChoice;
 	playerProfile[4] = weaponChoice;
+	playerProfile[5] = 0; // ENEMY KILLS!
 
 	return playerProfile;
 }
@@ -109,24 +110,24 @@ std::string* PlayerDetails(int* ptrPProfile)
 	// KNIGHT PROFILE
 	if (ptrPProfile[3] == 1)
 	{
-		std::cout << "Job Type selected: Knight" << std::endl;
+		std::cout << "\nJob Type selected: Knight" << std::endl;
 		playerDetails[0] = "knight";
 
 		if (ptrPProfile[4] == 1)
 		{
-			std::cout << "Weapon selected: Sword";
+			std::cout << "\nWeapon selected: Sword";
 			playerDetails[1] = "sword";
 		}
 
 		else if (ptrPProfile[4] == 2)
 		{
-			std::cout << "Weapon selected: Axe";
+			std::cout << "\nWeapon selected: Axe";
 			playerDetails[1] = "axe";
 		}
 
 		else if (ptrPProfile[4] == 3)
 		{
-			std::cout << "Weapon selected: Mace";
+			std::cout << "\nWeapon selected: Mace";
 			playerDetails[1] = "mace";
 		}
 
@@ -136,24 +137,24 @@ std::string* PlayerDetails(int* ptrPProfile)
 	// ROGUE PROFILE
 	else if (ptrPProfile[3] == 2)
 	{
-		std::cout << "Job Type selected: Rogue" << std::endl;
+		std::cout << "\nJob Type selected: Rogue" << std::endl;
 		playerDetails[0] = "rogue";
 
 		if (ptrPProfile[4] == 1)
 		{
-			std::cout << "Weapon selected: Bow";
+			std::cout << "\nWeapon selected: Bow";
 			playerDetails[1] = "bow";
 		}
 
 		else if (ptrPProfile[4] == 2)
 		{
-			std::cout << "Weapon selected: Daggers";
+			std::cout << "\nWeapon selected: Daggers";
 			playerDetails[1] = "daggers";
 		}
 
 		else if (ptrPProfile[4] == 3)
 		{
-			std::cout << "Weapon selected: Scimitar";
+			std::cout << "\nWeapon selected: Scimitar";
 			playerDetails[1] = "scimitar";
 		}
 	}
@@ -162,24 +163,24 @@ std::string* PlayerDetails(int* ptrPProfile)
 	// MAGE PROFILE
 	else if (ptrPProfile[3] == 3)
 	{
-		std::cout << "Job Type selected: Mage" << std::endl;
+		std::cout << "\nJob Type selected: Mage" << std::endl;
 		playerDetails[0] = "mage";
 
 		if (ptrPProfile[4] == 1)
 		{
-			std::cout << "Weapon selected: Staff";
+			std::cout << "\nWeapon selected: Staff";
 			playerDetails[1] = "staff";
 		}
 
 		else if (ptrPProfile[4] == 2)
 		{
-			std::cout << "Weapon selected: Wand";
+			std::cout << "\nWeapon selected : Wand";
 			playerDetails[1] = "wand";
 		}
 
 		else if (ptrPProfile[4] == 3)
 		{
-			std::cout << "Weapon selected: Wand";
+			std::cout << "\nWeapon selected: Wand";
 			playerDetails[1] = "wand";
 		}
 	}

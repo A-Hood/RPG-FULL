@@ -27,6 +27,9 @@
     <ClCompile Include="Fight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WeaponSpecifics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">
