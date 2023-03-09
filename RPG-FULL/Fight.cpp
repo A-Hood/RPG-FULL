@@ -15,6 +15,7 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	int pDamage, eDamage;
 	int attackChoice;
 	std::string pause;
+	// end of the mess shhhhhh...
 	
 	int* ptrDaggers;
 	int* ptrWand;
