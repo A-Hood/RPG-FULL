@@ -141,5 +141,5 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	std::cout << "\n\nDEBUG: ENCOUNTER OVER!";
 	// ENCOUNTER OVER!
 
-	return 0;
+	return ptrPProfile[0];
 }
