@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cstdlib>
+#include <chrono>
+#include <thread>
 #include "Header.h"
 
 // PLAYER PROFILE IS: HEALTH, MINDAMAGE, MAXDAMAGE, CHARACTERSELECTION, WEAPONSELECTION!
@@ -18,6 +20,12 @@ int main()
 	int* ptrPProfile;// PTR FOR PlayerProfile
 	std::string* ptrPDetails; // PTR FOR PlayerDetails
 	// DECLARING PTRs END
+
+	std::cout << "========================================================\n\n";
+	Type("WELCOME TO [insert whatever generic rpg name] RPG!", 15); 
+	std::cout << "\n\n========================================================\n\n";
+	Type("Each class has different weapons with different stats.\nSome have a lot of power while others have lower power while attacking more times!\nFeel free to experiment!\n\n", 15);
+	std::this_thread::sleep_for(std::chrono::seconds(2));
 
 	// PLAYER PROFILE
 	ptrPProfile = PlayerProfile(characterChoice, playerHealth, playerMinDamage, playerMaxDamage); // INT PLAYER HEALTH [0] 
