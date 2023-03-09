@@ -10,4 +10,8 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 
 std::string EnemyName(int* ptrEProfile, std::string enemyName);
 
+int* Wand();
+
+int* Daggers();
+
 

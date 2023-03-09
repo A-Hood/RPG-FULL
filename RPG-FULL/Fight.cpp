@@ -13,6 +13,9 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	int pDamage, eDamage;
 	int attackChoice;
 	std::string pause;
+	
+	int* ptrDaggers;
+	int* ptrWand;
 
 	srand(time(NULL)); // SEEDING RANDOM NUM GENERATOR
 
@@ -53,21 +56,57 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 			if (attackChoice == 1)
 			{
 				pDamage = rand() % (ptrEProfile[2] - ptrEProfile[1] - 1) + ptrEProfile[1]; // RANDOM NUMBER BETWEEN PLAYERS DAMAGEMAX AND DAMAGEMIN
-				std::cout << "\n\nYour attack did ";
-				std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-				std::cout << "" << pDamage << " damage!";
-				ptrEProfile[0] = ptrEProfile[0] - pDamage; // ENEMY HEALTH - PLAYER DAMAGE
-				std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-				std::cout << "\n\nThe enemy " << enemyName << " is on " << ptrEProfile[0] << " health!\n\n";
-				attackChoice = 0;
-				valid = true;
+				if (ptrPDetails[1] == "daggers")
+				{
+					ptrDaggers = Daggers();
+					std::cout << "\n\nYou attacked ";
+					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
+					std::cout << ptrDaggers[1] << " times!\n";
+					std::cout << "You dealt ";
+					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
+					std::cout << "" << ptrDaggers[0] << " damage!";
+					ptrEProfile[0] = ptrEProfile[0] - ptrDaggers[0]; // ENEMY HEALTH - PLAYER DAMAGE
+					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
+					std::cout << "\n\nThe enemy " << enemyName << " is on " << ptrEProfile[0] << " health!\n\n";
+					attackChoice = 0;
+					valid = true;
+					break;
+				}
+				else if (ptrPDetails[1] == "wand")
+				{
+					ptrWand = Wand();
+					std::cout << "\n\nYou attacked ";
+					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
+					std::cout << ptrWand[1] << " times!\n";
+					std::cout << "You dealt ";
+					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
+					std::cout << "" << ptrWand[0] << " damage!";
+					ptrEProfile[0] = ptrEProfile[0] - ptrWand[0]; // ENEMY HEALTH - PLAYER DAMAGE
+					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
+					std::cout << "\n\nThe enemy " << enemyName << " is on " << ptrEProfile[0] << " health!\n\n";
+					attackChoice = 0;
+					valid = true;
+					break;
+				}
+
+				else 
+				{
+					std::cout << "\n\nYour attack did ";
+					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
+					std::cout << "" << pDamage << " damage!";
+					ptrEProfile[0] = ptrEProfile[0] - pDamage; // ENEMY HEALTH - PLAYER DAMAGE
+					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
+					std::cout << "\n\nThe enemy " << enemyName << " is on " << ptrEProfile[0] << " health!\n\n";
+					attackChoice = 0;
+					valid = true;
+				}
 			}
 
 			// BLOCKING CHOICE
 			else if (attackChoice == 2)
 			{
 				dodge = true;
-				std::cout << "You will dodge the next attack from the enemy " << enemyName << "!";
+				std::cout << "\nYou will dodge the next attack from the enemy " << enemyName << "!";
 				attackChoice = 0;
 				valid = true;
 			}
