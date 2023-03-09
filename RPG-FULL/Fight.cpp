@@ -6,6 +6,8 @@
 
 int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int enemySpawnType)
 {
+
+	// these dont exist shhhhhhh...
 	bool fight = true;
 	bool pDead, eDead = false;
 	bool valid = false;
@@ -127,7 +129,7 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 			// INVALID OPTIONS OVER
 		}
 
-		valid = false; // DECLARED AT FALSE AGAIN SO YOU CAN CHOOSE AGAIN LATER
+		valid = false; // DECLARED AS FALSE AGAIN SO YOU CAN CHOOSE AGAIN LATER
 
 		if (ptrEProfile[0] <= 0) // CHECKS IF ENEMY HEALTH IS UNDER OR EQUAL TO 0
 		{
