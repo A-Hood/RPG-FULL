@@ -4,7 +4,7 @@
 #include <thread>
 #include "Header.h"
 
-// PLAYER PROFILE IS: HEALTH, MINDAMAGE, MAXDAMAGE, CHARACTERSELECTION, WEAPONSELECTION, ENEMYKILLS, DODGECHANCE, HEALTHPOTIONAMOUNT, MAXIMUM HEALTH!
+// PLAYER PROFILE IS: HEALTH, MINDAMAGE, MAXDAMAGE, CHARACTERSELECTION, WEAPONSELECTION, ENEMYKILLS, DODGECHANCE, HEALTHPOTIONAMOUNT, MAXIMUM HEALTH, GOLD!
 // ENEMY PROFILE IS: HEALTH, MINDAMAGE, MAXDAMAGE, TYPE!
 
 // ENEMY PROFILE OUTPUT: std::cout << "\nEnemy Health: " << ptrEDamage[0] << "\nEnemy Minimum Damage: " << ptrEDamage[1] << "\nEnemy Maximum Damage: " << ptrEDamage[2] << std::endl;
@@ -36,14 +36,14 @@ int main()
 
 	// FOR DEBUG!: std::cout << "\n\n=======================================\n\nDEBUG!!!\n\nArray PlayerProfile: " << ptrPProfile[0] << " " << ptrPProfile[1] << " " << ptrPProfile[2] << " " << ptrPProfile[3] << " " << ptrPProfile[4] << "\n\nArray PlayerDetails: " << ptrPDetails[0] << " " << ptrPDetails[1] << "\n\nEnemy Name: " << enemyName << "\n\n======================================\n";
 	
-	
+
 	// FIGHT INITIATE
 	
 	while (ptrPProfile[0] > 0)
 	{
 		ptrPProfile[0] = Fight(ptrPProfile, ptrPDetails, enemyName, enemySpawnType);
 	}
-
+	
 
 	std::cin.get();
 }
