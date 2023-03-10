@@ -5,9 +5,7 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RPG-FULL", "RPG-FULL\RPG-FULL.vcxproj", "{0B3AC5A8-21B9-46E9-8AEB-A15253E64CEF}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TextRPG_v0.1", "TextRPG_v0.1\TextRPG_v0.1.vdproj", "{942D2FEC-1DE5-47E6-B9EB-12BF19874810}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TextRPG_v0.1.5", "TextRPG_v0.1.5\TextRPG_v0.1.5.vdproj", "{95B0024C-F953-46C4-99DB-EC90F945DD65}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TextRPG_v0.1.6", "TextRPG_v0.1.6\TextRPG_v0.1.6.vdproj", "{670AB300-7C38-48CB-B03F-782B92F4F2EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +23,11 @@ Global
 		{0B3AC5A8-21B9-46E9-8AEB-A15253E64CEF}.Release|x64.Build.0 = Release|x64
 		{0B3AC5A8-21B9-46E9-8AEB-A15253E64CEF}.Release|x86.ActiveCfg = Release|Win32
 		{0B3AC5A8-21B9-46E9-8AEB-A15253E64CEF}.Release|x86.Build.0 = Release|Win32
-		{942D2FEC-1DE5-47E6-B9EB-12BF19874810}.Debug|x64.ActiveCfg = Release
-		{942D2FEC-1DE5-47E6-B9EB-12BF19874810}.Debug|x86.ActiveCfg = Debug
-		{942D2FEC-1DE5-47E6-B9EB-12BF19874810}.Release|x64.ActiveCfg = Release
-		{942D2FEC-1DE5-47E6-B9EB-12BF19874810}.Release|x86.ActiveCfg = Release
-		{95B0024C-F953-46C4-99DB-EC90F945DD65}.Debug|x64.ActiveCfg = Release
-		{95B0024C-F953-46C4-99DB-EC90F945DD65}.Debug|x86.ActiveCfg = Debug
-		{95B0024C-F953-46C4-99DB-EC90F945DD65}.Release|x64.ActiveCfg = Release
-		{95B0024C-F953-46C4-99DB-EC90F945DD65}.Release|x86.ActiveCfg = Release
+		{670AB300-7C38-48CB-B03F-782B92F4F2EE}.Debug|x64.ActiveCfg = Release
+		{670AB300-7C38-48CB-B03F-782B92F4F2EE}.Debug|x64.Build.0 = Release
+		{670AB300-7C38-48CB-B03F-782B92F4F2EE}.Debug|x86.ActiveCfg = Debug
+		{670AB300-7C38-48CB-B03F-782B92F4F2EE}.Release|x64.ActiveCfg = Release
+		{670AB300-7C38-48CB-B03F-782B92F4F2EE}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

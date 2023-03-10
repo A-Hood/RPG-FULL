@@ -33,6 +33,12 @@
     <ClCompile Include="LetterByLetter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DodgeChance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Heal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">
