@@ -1,6 +1,6 @@
 #pragma once
 
-int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, int playerMaxDamage, int weaponChoice);
+int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, int playerMaxDamage, int weaponChoice, int dodgeChance);
 
 std::string* PlayerDetails(int* ptrPProfile);
 
@@ -19,3 +19,7 @@ void Type(std::string str, int speed);
 void JobLBL(std::string job);
 
 void WeaponLBL(std::string weapon);
+
+bool DodgeChance(int* ptrPProfile, bool dodge);
+
+int* Heal(int* ptrPProfile);
