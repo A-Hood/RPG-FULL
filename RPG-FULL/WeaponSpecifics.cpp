@@ -50,12 +50,12 @@ int* Wand() // WAND CAN ATTACK 2-4 TIMES RANDOM NUM
 		}
 	}
 	
-	else if (randAttackAmmount == 3) // 4 TIMES
+	else if (randAttackAmmount == 4) // 4 TIMES
 	{
 		wand[0] = 20;
 		wand[1] = 4;
 		std::cout << "\n\n";
-		for (int i = 0; i < 3; i++)
+		for (int i = 0; i < 4; i++)
 		{
 			Type("Pew...!", 30);
 			std::cout << "\n";
