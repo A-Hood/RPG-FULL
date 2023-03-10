@@ -1,6 +1,6 @@
 #pragma once
 
-int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, int playerMaxDamage);
+int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, int playerMaxDamage, int weaponChoice);
 
 std::string* PlayerDetails(int* ptrPProfile);
 

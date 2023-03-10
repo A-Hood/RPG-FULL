@@ -28,7 +28,7 @@ int main()
 	std::this_thread::sleep_for(std::chrono::seconds(2));
 
 	// PLAYER PROFILE
-	ptrPProfile = PlayerProfile(characterChoice, playerHealth, playerMinDamage, playerMaxDamage); // INT PLAYER HEALTH [0] 
+	ptrPProfile = PlayerProfile(characterChoice, playerHealth, playerMinDamage, playerMaxDamage, weaponChoice); // INT PLAYER HEALTH [0] 
 	ptrPDetails = PlayerDetails(ptrPProfile); // STRING ARRAY FOR 'JOB NAME' ([0]) AND 'WEAPON NAME' ([1])
 	// PLAYER PROFILE END
 

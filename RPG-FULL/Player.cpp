@@ -3,11 +3,10 @@
 #include <thread>
 #include "Header.h"
 
-int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, int playerMaxDamage)
+int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, int playerMaxDamage, int weaponChoice)
 {
 	std::string str;
 	static int playerProfile[6];
-	int weaponChoice;
 	int speed = 60; // OUTPUT SPEED!
 	bool valid = false;
 
@@ -71,7 +70,7 @@ int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, i
 			Type(str, speed);
 			std::cin >> weaponChoice;
 
-			while (valid = false)
+			while (valid == false)
 			{
 				if (weaponChoice == 1)
 				{
