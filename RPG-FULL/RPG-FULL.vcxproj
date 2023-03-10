@@ -130,11 +130,13 @@
     <ClCompile Include="DodgeChance.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Fight.cpp" />
+    <ClCompile Include="GoldDrop.cpp" />
     <ClCompile Include="Heal.cpp" />
     <ClCompile Include="LetterByLetter.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Shop.cpp" />
+    <ClCompile Include="Upgrades.cpp" />
     <ClCompile Include="WeaponSpecifics.cpp" />
   </ItemGroup>
   <ItemGroup>

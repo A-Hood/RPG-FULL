@@ -42,6 +42,12 @@
     <ClCompile Include="Shop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GoldDrop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Upgrades.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">
