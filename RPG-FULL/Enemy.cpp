@@ -3,7 +3,7 @@
 
 int* EnemyProfile(int enemySpawnType)
 {
-	static int enemyProfile[4];
+	static int enemyProfile[6];
 
 	// BANDIT ENEMY TYPE !
 	if (enemySpawnType == 1)
@@ -12,6 +12,8 @@ int* EnemyProfile(int enemySpawnType)
 		enemyProfile[1] = 5; // MIN DAMAGE
 		enemyProfile[2] = 8; // MAX DAMAGE
 		enemyProfile[3] = 1; // ENEMY TYPE
+		enemyProfile[4] = 20; // MIN GOLD DROP
+		enemyProfile[5] = 30; // MAX GOLD DROP
 	}
 
 	// MERCANARY ENEMY TYPE !
@@ -21,6 +23,8 @@ int* EnemyProfile(int enemySpawnType)
 		enemyProfile[1] = 10; // MIN DAMAGE
 		enemyProfile[2] = 15; // MAX DAMAGE
 		enemyProfile[3] = 2; // ENEMY TYPE
+		enemyProfile[4] = 25; // MIN GOLD DROP
+		enemyProfile[5] = 40; // MAX GOLD DROP
 	}
 
 	// TROLL ENEMY TYPE !
@@ -30,6 +34,8 @@ int* EnemyProfile(int enemySpawnType)
 		enemyProfile[1] = 15; // MIN DAMAGE
 		enemyProfile[2] = 25; // MAX DAMAGE
 		enemyProfile[3] = 3; // ENEMY TYPE
+		enemyProfile[4] = 35; // MIN GOLD DROP
+		enemyProfile[5] = 50; // MAX GOLD DROP
 	}
 
 	return enemyProfile;
