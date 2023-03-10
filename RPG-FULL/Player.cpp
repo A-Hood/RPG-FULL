@@ -136,8 +136,8 @@ int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, i
 
 				else if (weaponChoice == 3)
 				{
-					playerMinDamage = 25;
-					playerMaxDamage = 30;
+					playerMinDamage = 12;
+					playerMaxDamage = 17;
 					break;
 				}
 				else if (weaponChoice < 1)
@@ -263,8 +263,8 @@ std::string* PlayerDetails(int* ptrPProfile)
 
 		else if (ptrPProfile[4] == 3)
 		{
-			WeaponLBL("Wand!");
-			playerDetails[1] = "wand";
+			WeaponLBL("Runebook!");
+			playerDetails[1] = "runebook";
 		}
 	}
 
