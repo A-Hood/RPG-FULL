@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RPG-FULL", "RPG-FULL\RPG-FU
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TextRPG_v0.1.6", "TextRPG_v0.1.6\TextRPG_v0.1.6.vdproj", "{670AB300-7C38-48CB-B03F-782B92F4F2EE}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TextRPG_v0.1.9", "TextRPG_v0.1.9\TextRPG_v0.1.9.vdproj", "{6EADFB97-069C-4F40-94F5-00D289BD9088}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -24,10 +26,13 @@ Global
 		{0B3AC5A8-21B9-46E9-8AEB-A15253E64CEF}.Release|x86.ActiveCfg = Release|Win32
 		{0B3AC5A8-21B9-46E9-8AEB-A15253E64CEF}.Release|x86.Build.0 = Release|Win32
 		{670AB300-7C38-48CB-B03F-782B92F4F2EE}.Debug|x64.ActiveCfg = Release
-		{670AB300-7C38-48CB-B03F-782B92F4F2EE}.Debug|x64.Build.0 = Release
 		{670AB300-7C38-48CB-B03F-782B92F4F2EE}.Debug|x86.ActiveCfg = Debug
 		{670AB300-7C38-48CB-B03F-782B92F4F2EE}.Release|x64.ActiveCfg = Release
 		{670AB300-7C38-48CB-B03F-782B92F4F2EE}.Release|x86.ActiveCfg = Release
+		{6EADFB97-069C-4F40-94F5-00D289BD9088}.Debug|x64.ActiveCfg = Release
+		{6EADFB97-069C-4F40-94F5-00D289BD9088}.Debug|x86.ActiveCfg = Debug
+		{6EADFB97-069C-4F40-94F5-00D289BD9088}.Release|x64.ActiveCfg = Release
+		{6EADFB97-069C-4F40-94F5-00D289BD9088}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

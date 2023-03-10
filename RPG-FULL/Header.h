@@ -23,3 +23,9 @@ void WeaponLBL(std::string weapon);
 bool DodgeChance(int* ptrPProfile, bool dodge);
 
 int* Heal(int* ptrPProfile);
+
+int* Shop(int* ptrPProfile);
+
+void ShopOutput(std::string* ptrShopI, int* ptrShopA);
+
+std::string Lowercase(std::string str);
