@@ -49,13 +49,13 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	std::cin >> pause;
 	pause = "";
 
-	// DEBUG!
-	std::cout << "\n\n=======================================\n\nDEBUG!!!\n\nArray Enemy Profile: " << ptrEProfile[0] << " " << ptrEProfile[1] << " " << ptrEProfile[2] << " " << ptrEProfile[3] << "\n\nEnemy Name: " << enemyName << "\n\nPlayer Array: " << ptrPProfile[0] << " " << ptrPProfile[1] << " " << ptrPProfile[2] << " " << ptrPProfile[3] << " " << ptrPProfile[4] << "\n\nPlayer Details Array: " << ptrPDetails[0] << " " << ptrPDetails[1] << "\n\n======================================\n";
+	// DEBUG! NOOOOOOOOOOOOOOOOOOOOOOO ITS GONE!!!
+	//std::cout << "\n\n=======================================\n\nDEBUG!!!\n\nArray Enemy Profile: " << ptrEProfile[0] << " " << ptrEProfile[1] << " " << ptrEProfile[2] << " " << ptrEProfile[3] << "\n\nEnemy Name: " << enemyName << "\n\nPlayer Array: " << ptrPProfile[0] << " " << ptrPProfile[1] << " " << ptrPProfile[2] << " " << ptrPProfile[3] << " " << ptrPProfile[4] << "\n\nPlayer Details Array: " << ptrPDetails[0] << " " << ptrPDetails[1] << "\n\n======================================\n";
 	
 	// FIRST ATTACK
 	std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
 	std::cout << "\n\n";
-	Type("You go first! ", 60);
+	Type("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n\nYou go first! ", 30);
 	Type("Would you like to: \n\n#1: Attack\n#2: Dodge\n\nChoice: ", 80);
 	std::cin >> attackChoice;
 	// FIRST ATTACK END
@@ -155,13 +155,13 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 			else if (attackChoice < 1)
 			{
 				std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
-				Type("Attack choice invalid!\n\nRe - enter a correct choice : ", speed);
+				Type("Attack choice invalid!\n\nRe - enter a correct choice : ", 60);
 				std::cin >> attackChoice;
 			}
 			else if (attackChoice > 2) 
 			{
 				std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
-				Type("Attack choice invalid!\n\nRe - enter a correct choice : ", speed);
+				Type("\n=!=!= ERROR =!=!=\n\nAttack choice invalid! Re-enter a correct choice: ", 40);
 				std::cin >> attackChoice;
 			}
 			// INVALID OPTIONS OVER
