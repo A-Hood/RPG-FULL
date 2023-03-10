@@ -190,6 +190,7 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 			Type(" enemies!", speed); // OUTPUTS AMOUNT OF KILLS
 			eDead = false; // ENEMY DEAD
 			fight = false; // FIGHT OVER
+			ptrPProfile = Shop(ptrPProfile);
 			break; // RUNS NEXT PART
 		}
 

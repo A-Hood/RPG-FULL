@@ -14,12 +14,14 @@ std::string username, enemyName;
 
 int main()
 {
+
 	srand(time(NULL)); // RANDOM NUMBER SEED
 
 	// DECLARING PTRs FOR ARRAYS
 	int* ptrPProfile;// PTR FOR PlayerProfile
 	std::string* ptrPDetails; // PTR FOR PlayerDetails
 	// DECLARING PTRs END
+
 
 	std::cout << "========================================================\n\n";
 	Type("WELCOME TO [insert whatever generic rpg name] RPG!", 15); 
@@ -33,7 +35,10 @@ int main()
 	// PLAYER PROFILE END
 
 	// FOR DEBUG!: std::cout << "\n\n=======================================\n\nDEBUG!!!\n\nArray PlayerProfile: " << ptrPProfile[0] << " " << ptrPProfile[1] << " " << ptrPProfile[2] << " " << ptrPProfile[3] << " " << ptrPProfile[4] << "\n\nArray PlayerDetails: " << ptrPDetails[0] << " " << ptrPDetails[1] << "\n\nEnemy Name: " << enemyName << "\n\n======================================\n";
-
+	
+	
+	// FIGHT INITIATE
+	
 	while (ptrPProfile[0] > 0)
 	{
 		ptrPProfile[0] = Fight(ptrPProfile, ptrPDetails, enemyName, enemySpawnType);
