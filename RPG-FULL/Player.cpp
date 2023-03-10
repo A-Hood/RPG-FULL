@@ -9,92 +9,159 @@ int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, i
 	static int playerProfile[6];
 	int weaponChoice;
 	int speed = 60; // OUTPUT SPEED!
+	bool valid = false;
 
 	str = "What class do you wish to be:\n\n#1: Knight\n#2: Rogue\n#3: Mage\n\nChoice: ";
 	Type(str, speed);
 	std::cin >> characterChoice;
 
-	
+	while (valid == false)
+	{
 	// KNIGHT CLASS CHOICE!
-	if (characterChoice == 1)
-	{
-		playerHealth = 120;
-		str = "\nWhat weapon do you wish to wield: \n\n#1: Sword\n#2: Axe\n#3: Mace\n\nChoice: ";
-		Type(str, speed);
-		std::cin >> weaponChoice;
-
-		if (weaponChoice == 1)
+		if (characterChoice == 1)
 		{
-			playerMinDamage = 5;
-			playerMaxDamage = 10;
+			playerHealth = 120;
+			str = "\nWhat weapon do you wish to wield: \n\n#1: Sword\n#2: Axe\n#3: Mace\n\nChoice: ";
+			Type(str, speed);
+			std::cin >> weaponChoice;
+
+			while (valid == false)
+			{
+				if (weaponChoice == 1)
+				{
+					playerMinDamage = 5;
+					playerMaxDamage = 10;
+					break;
+				}
+
+				else if (weaponChoice == 2)
+				{
+					playerMinDamage = 15;
+					playerMaxDamage = 20;
+					break;
+				}
+
+				else if (weaponChoice == 3)
+				{
+					playerMinDamage = 20;
+					playerMaxDamage = 25;
+					break;
+				}
+				else if (weaponChoice < 1)
+				{
+					Type("\n=!=!= ERROR =!=!=\n\nWeapon choice invalid! Re-enter a correct choice: ", 40);
+					std::cin >> weaponChoice;
+				}
+				else if (weaponChoice > 3)
+				{
+					Type("\n=!=!= ERROR =!=!=\n\nWeapon choice invalid! Re-enter a correct choice: ", 40);
+					std::cin >> weaponChoice;
+				}
+			}
+			break;
+
 		}
 
-		else if (weaponChoice == 2)
+
+		// ROGUE CLASS CHOICE!
+		else if (characterChoice == 2)
 		{
-			playerMinDamage = 15;
-			playerMaxDamage = 20;
+			playerHealth = 100;
+			str = "\nWhat weapon do you wish to wield: \n\n#1: Bow\n#2: Daggers\n#3: Scimitar\n\nChoice: ";
+			Type(str, speed);
+			std::cin >> weaponChoice;
+
+			while (valid = false)
+			{
+				if (weaponChoice == 1)
+				{
+					playerMinDamage = 15;
+					playerMaxDamage = 20;
+					break;
+				}
+
+				else if (weaponChoice == 2)
+				{
+					playerMinDamage = 7;
+					playerMaxDamage = 7;
+					break;
+				}
+
+				else if (weaponChoice == 3)
+				{
+					playerMinDamage = 10;
+					playerMaxDamage = 15;
+					break;
+				}
+				
+				else if (weaponChoice < 1)
+				{
+					Type("\n=!=!= ERROR =!=!=\n\nWeapon choice invalid! Re-enter a correct choice: ", 40);
+					std::cin >> weaponChoice;
+				}
+
+				else if (weaponChoice > 3)
+				{
+					Type("\n=!=!= ERROR =!=!=\n\nWeapon choice invalid! Re-enter a correct choice: ", 40);
+					std::cin >> weaponChoice;
+				}
+			}
+			break;
 		}
 
-		else if (weaponChoice == 3)
+
+		// MAGE CLASS CHOICE!
+		else if (characterChoice == 3)
 		{
-			playerMinDamage = 20;
-			playerMaxDamage = 25;
+			playerHealth = 75;
+			str = "\nWhat weapon do you wish to wield: \n\n#1: Staff\n#2: Wand\n#3: Runebook\n\nChoice: ";
+			Type(str, speed);
+			std::cin >> weaponChoice;
+
+			while (valid == false)
+			{
+				if (weaponChoice == 1)
+				{
+					playerMinDamage = 10;
+					playerMaxDamage = 15;
+					break;
+				}
+
+				else if (weaponChoice == 2)
+				{
+					playerMinDamage = 5;
+					playerMaxDamage = 5;
+					break;
+				}
+
+				else if (weaponChoice == 3)
+				{
+					playerMinDamage = 25;
+					playerMaxDamage = 30;
+					break;
+				}
+				else if (weaponChoice < 1)
+				{
+					Type("\n=!=!= ERROR =!=!=\n\nWeapon choice invalid! Re-enter a correct choice: ", 40);
+					std::cin >> weaponChoice;
+				}
+				else if (weaponChoice > 3)
+				{
+					Type("\n=!=!= ERROR =!=!=\n\nWeapon choice invalid! Re-enter a correct choice: ", 40);
+					std::cin >> weaponChoice;
+				}
+			}
+			break;
 		}
-	}
-
-
-	// ROGUE CLASS CHOICE!
-	else if (characterChoice == 2)
-	{
-		playerHealth = 100;
-		str = "\nWhat weapon do you wish to wield: \n\n#1: Bow\n#2: Daggers\n#3: Scimitar\n\nChoice: ";
-		Type(str, speed);
-		std::cin >> weaponChoice;
-
-		if (weaponChoice == 1)
+		else if (characterChoice < 1)
 		{
-			playerMinDamage = 15;
-			playerMaxDamage = 20;
+			Type("\n=!=!= ERROR =!=!=\n\nCharacter choice invalid! Re-enter a correct choice: ", 40);
+			std::cin >> characterChoice;
 		}
-
-		else if (weaponChoice == 2)
+		else if (characterChoice > 3)
 		{
-			playerMinDamage = 7;
-			playerMaxDamage = 7;
-		}
-
-		else if (weaponChoice == 3)
-		{
-			playerMinDamage = 10;
-			playerMaxDamage = 15;
-		}
-	}
-
-
-	// MAGE CLASS CHOICE!
-	else if (characterChoice == 3)
-	{
-		playerHealth = 75;
-		str = "\nWhat weapon do you wish to wield: \n\n#1: Staff\n#2: Wand\n#3: Runebook\n\nChoice: ";
-		Type(str, speed);
-		std::cin >> weaponChoice;
-
-		if (weaponChoice == 1)
-		{
-			playerMinDamage = 10;
-			playerMaxDamage = 15;
-		}
-
-		else if (weaponChoice == 2)
-		{
-			playerMinDamage = 5;
-			playerMaxDamage = 5;
-		}
-
-		else if (weaponChoice == 3)
-		{
-			playerMinDamage = 25;
-			playerMaxDamage = 30;
+			Type("\n=!=!= ERROR =!=!=\n\nCharacter choice invalid! Re-enter a correct choice: ", 40);
+			std::cin >> characterChoice;
 		}
 	}
 
