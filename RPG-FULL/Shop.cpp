@@ -46,7 +46,6 @@ int* Shop(int* ptrPProfile)
 		shopPrices[2] = 250;
 	}
 
-
 	std::cout << "\n\n";
 	Type("=$=$=$=$=$=$= SHOP =$=$=$=$=$=$=", 40);
 
