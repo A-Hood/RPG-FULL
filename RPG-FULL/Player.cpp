@@ -3,10 +3,10 @@
 #include <thread>
 #include "Header.h"
 
-int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, int playerMaxDamage, int weaponChoice)
+int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, int playerMaxDamage, int weaponChoice, int dodgeChance)
 {
 	std::string str;
-	static int playerProfile[6];
+	static int playerProfile[9];
 	int speed = 60; // OUTPUT SPEED!
 	bool valid = false;
 
@@ -20,6 +20,7 @@ int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, i
 		if (characterChoice == 1)
 		{
 			playerHealth = 120;
+			dodgeChance = 2; // 1 IN 4 DODGE CHANCE
 			str = "\nWhat weapon do you wish to wield: \n\n#1: Sword\n#2: Axe\n#3: Mace\n\nChoice: ";
 			Type(str, speed);
 			std::cin >> weaponChoice;
@@ -66,6 +67,7 @@ int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, i
 		else if (characterChoice == 2)
 		{
 			playerHealth = 100;
+			dodgeChance = 2; // 1 IN 3 DODGE CHANCE
 			str = "\nWhat weapon do you wish to wield: \n\n#1: Bow\n#2: Daggers\n#3: Scimitar\n\nChoice: ";
 			Type(str, speed);
 			std::cin >> weaponChoice;
@@ -113,6 +115,7 @@ int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, i
 		else if (characterChoice == 3)
 		{
 			playerHealth = 75;
+			dodgeChance = 2; // 1 IN 2 DODGE CHANCE
 			str = "\nWhat weapon do you wish to wield: \n\n#1: Staff\n#2: Wand\n#3: Runebook\n\nChoice: ";
 			Type(str, speed);
 			std::cin >> weaponChoice;
@@ -165,13 +168,17 @@ int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, i
 	}
 
 
-
-	playerProfile[0] = playerHealth;
-	playerProfile[1] = playerMinDamage;
-	playerProfile[2] = playerMaxDamage;
-	playerProfile[3] = characterChoice;
-	playerProfile[4] = weaponChoice;
+	// PLAYER PROFILE
+	playerProfile[0] = playerHealth; // HEALTH
+	playerProfile[1] = playerMinDamage; // MIN DAMAGE
+	playerProfile[2] = playerMaxDamage; // MAX DAMAGE
+	playerProfile[3] = characterChoice; // CHARACTER CHOICE
+	playerProfile[4] = weaponChoice; // WEAPON CHOICE
 	playerProfile[5] = 0; // ENEMY KILLS!
+	playerProfile[6] = dodgeChance; // DODGE CHANCE
+	playerProfile[7] = 5; // HEALTH POTION AMOUNT
+	playerProfile[8] = playerHealth;
+	// PLAYER PROFILE END
 
 	return playerProfile;
 }
