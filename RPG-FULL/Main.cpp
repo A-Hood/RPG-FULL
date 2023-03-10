@@ -4,12 +4,12 @@
 #include <thread>
 #include "Header.h"
 
-// PLAYER PROFILE IS: HEALTH, MINDAMAGE, MAXDAMAGE, CHARACTERSELECTION, WEAPONSELECTION!
+// PLAYER PROFILE IS: HEALTH, MINDAMAGE, MAXDAMAGE, CHARACTERSELECTION, WEAPONSELECTION, ENEMYKILLS, DODGECHANCE, HEALTHPOTIONAMOUNT, MAXIMUM HEALTH!
 // ENEMY PROFILE IS: HEALTH, MINDAMAGE, MAXDAMAGE, TYPE!
 
 // ENEMY PROFILE OUTPUT: std::cout << "\nEnemy Health: " << ptrEDamage[0] << "\nEnemy Minimum Damage: " << ptrEDamage[1] << "\nEnemy Maximum Damage: " << ptrEDamage[2] << std::endl;
 int enemySpawnType, enemyHealth, enemyMinDamage, enemyMaxDamage; // ENEMY GLOBALS
-int playerHealth, playerMinDamage, playerMaxDamage, characterChoice, weaponChoice; // PLAYER GLOBALS
+int playerHealth, playerMinDamage, playerMaxDamage, characterChoice, weaponChoice, dodgeChance; // PLAYER GLOBALS
 std::string username, enemyName;
 
 int main()
@@ -28,7 +28,7 @@ int main()
 	std::this_thread::sleep_for(std::chrono::seconds(2));
 
 	// PLAYER PROFILE
-	ptrPProfile = PlayerProfile(characterChoice, playerHealth, playerMinDamage, playerMaxDamage, weaponChoice); // INT PLAYER HEALTH [0] 
+	ptrPProfile = PlayerProfile(characterChoice, playerHealth, playerMinDamage, playerMaxDamage, weaponChoice, dodgeChance); // INT PLAYER HEALTH [0] 
 	ptrPDetails = PlayerDetails(ptrPProfile); // STRING ARRAY FOR 'JOB NAME' ([0]) AND 'WEAPON NAME' ([1])
 	// PLAYER PROFILE END
 
