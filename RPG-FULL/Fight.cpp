@@ -21,7 +21,7 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	bool heal = false;
 	std::string healChoice;
 	std::string pause;
-	float tempDamage;
+	float tempDamage, tempEDamage;
 	// end of the mess shhhhhh...
 	
 	int* ptrDaggers;
@@ -54,6 +54,10 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	
 	// PRESS ENTER
 	std::cin >> pause;
+	if (pause == "infmoney")
+	{
+		ptrPProfile[9] = 99999999;
+	}
 	pause = "";
 
 	// DEBUG! NOOOOOOOOOOOOOOOOOOOOOOO ITS GONE!!!
@@ -245,11 +249,8 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 			eDead = false; // ENEMY DEAD
 			fight = false; // FIGHT OVER
 
-
 			ptrPProfile = Shop(ptrPProfile);
 			ptrUpgrades = UpgradeCheck(ptrPProfile);
-
-			std::cout << "\n\n" << ptrUpgrades[0] << "\n" << ptrUpgrades[1] << "\n\n";
 
 			break; // RUNS NEXT PART
 		}
@@ -273,7 +274,11 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 			{
 				Type("\n\nYou failed to dodge the attack! You were attacked for ", 50);
 				std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
-				std::cout << eDamage;
+				
+				tempEDamage = eDamage * ptrUpgrades[1]; //
+				eDamage = round(tempEDamage); // 
+				std::cout << eDamage; //
+				
 				std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
 				Type(" damage!", 60);
 				std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
