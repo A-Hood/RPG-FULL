@@ -26,10 +26,12 @@ int* Heal(int* ptrPProfile);
 
 int* Shop(int* ptrPProfile);
 
-void ShopOutput(std::string* ptrShopI, int* ptrShopA, int* ptrShopC);
+void ShopOutput(std::string* ptrShopI, int* ptrShopA, int* ptrShopC, int* ptrPProfile);
 
 std::string Lowercase(std::string str);
 
 int* EnemyRewards(int* ptrEProfile, int* ptrPProfile);
 
 float* UpgradeCheck(int* ptrPProfile);
+
+int* EnemyLevels(int* ptrPProfile, int* ptrEProfile);
