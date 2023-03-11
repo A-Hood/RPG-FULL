@@ -9,7 +9,7 @@ int* Shop(int* ptrPProfile)
 {
 	std::string shopItems[4] = { "Health Potions", "Weapon Upgrade", "Armour Upgrade", "NULL" };
 	int shopAmount[4] = { 2, 0, 0, 0 };
-	int shopPrices[4] = { 40, 0, 0 , 0 };
+	int shopPrices[4] = { 20, 0, 0 , 0 };
 	std::string* ptrShopI;
 	int* ptrShopA;
 	int* ptrShopC;
@@ -26,24 +26,24 @@ int* Shop(int* ptrPProfile)
 	if (ptrPProfile[10] == 1)
 	{
 		shopAmount[1] = 1;
-		shopPrices[1] = 150;
+		shopPrices[1] = 100;
 	}
 	else if (ptrPProfile[10] == 2)
 	{
 		shopAmount[1] = 1;
-		shopPrices[1] = 250;
+		shopPrices[1] = 200;
 	}
 
 
 	if (ptrPProfile[11] == 1)
 	{
 		shopAmount[2] = 1;
-		shopPrices[2] = 150;
+		shopPrices[2] = 100;
 	}
 	else if (ptrPProfile[11] == 2)
 	{
 		shopAmount[2] = 1;
-		shopPrices[2] = 250;
+		shopPrices[2] = 200;
 	}
 
 	std::cout << "\n\n";
@@ -51,7 +51,7 @@ int* Shop(int* ptrPProfile)
 
 	std::cout << "\n\n";
 	
-	ShopOutput(ptrShopI, ptrShopA, shopPrices);
+	ShopOutput(ptrShopI, ptrShopA, shopPrices, ptrPProfile);
 
 	std::cout << "\n\n\n";
 
@@ -123,9 +123,13 @@ int* Shop(int* ptrPProfile)
 							Type(" gold!", 30);
 						}
 					}
-					else if (ptrShopA[1] == 0)
+					else if (ptrShopA[1] == 0 && ptrPProfile[10] < 3)
 					{
 						Type("\n\n*Checks under desk*\nSorry! I'm out of stock! I will be restocking soon.", 30);
+					}
+					else if (ptrShopA[1] == 0 && ptrPProfile[10] == 3)
+					{
+						Type("\n\nYou are at max weapon upgrade!", 30);
 					}
 				}
 
@@ -153,9 +157,13 @@ int* Shop(int* ptrPProfile)
 							Type(" gold!", 30);
 						}
 					}
-					else if (ptrShopA[2] == 0)
+					else if (ptrShopA[2] == 0 && ptrPProfile[11] < 3)
 					{
 						Type("\n\n*Checks under desk*\nSorry! I'm out of stock! I will be restocking soon.", 30);
+					}
+					else if (ptrShopA[2] == 0 && ptrPProfile[11] == 3)
+					{
+						Type("\n\nYou are at max armour upgrade!", 30);
 					}
 				}
 
@@ -181,7 +189,7 @@ int* Shop(int* ptrPProfile)
 					if (optionSelect == 1) // DISPLAY SHOP AGAIN
 					{
 						Type("\n\n=$=$=$=$=$=$= SHOP =$=$=$=$=$=$=\n\n", 10);
-						ShopOutput(ptrShopI, ptrShopA, ptrShopC);
+						ShopOutput(ptrShopI, ptrShopA, ptrShopC, ptrPProfile);
 						std::cout << "\n";
 						itemSelect = 0;
 					}
@@ -234,7 +242,7 @@ int* Shop(int* ptrPProfile)
 	return 0;
 }
 
-void ShopOutput(std::string* ptrShopI, int* ptrShopA, int* ptrShopC)
+void ShopOutput(std::string* ptrShopI, int* ptrShopA, int* ptrShopC, int* ptrPProfile)
 {
 	// ITEM 1
 	Type("#1: ", 50);
@@ -247,25 +255,53 @@ void ShopOutput(std::string* ptrShopI, int* ptrShopA, int* ptrShopC)
 
 	std::cout << "\n\n";
 
-	//ITEM 2
-	Type("#2: ", 50);
-	std::cout << ptrShopI[1];
-	Type(" | Cost: ", 50);
-	std::cout << ptrShopC[1];
-	Type(" | Amount: ", 50);
-	std::cout << ptrShopA[1];
-	// ITEM 2 END
+	if (ptrPProfile[10] < 3)
+	{
+		//ITEM 2
+		Type("#2: ", 50);
+		std::cout << ptrShopI[1] << " " << ptrPProfile[10];
+		Type(" | Cost: ", 50);
+		std::cout << ptrShopC[1];
+		Type(" | Amount: ", 50);
+		std::cout << ptrShopA[1];
+		// ITEM 2 END
+	}
+	else if (ptrPProfile[10] == 3)
+	{
+		//ITEM 2
+		Type("#2: ", 50);
+		std::cout << "Out Of Stock!";
+		Type(" | Cost: ", 50);
+		std::cout << ptrShopC[1];
+		Type(" | Amount: ", 50);
+		std::cout << ptrShopA[1];
+		// ITEM 2 END
+	}
 
 	std::cout << "\n\n";
 
-	//ITEM 3
-	Type("#3: ", 50);
-	std::cout << ptrShopI[2];
-	Type(" | Cost: ", 50);
-	std::cout << ptrShopC[2];
-	Type(" | Amount: ", 50);
-	std::cout << ptrShopA[2];
-	// ITEM 3 END
+	if (ptrPProfile[10] < 3)
+	{
+		//ITEM 3
+		Type("#3: ", 50);
+		std::cout << ptrShopI[2] << " " << ptrPProfile[10];
+		Type(" | Cost: ", 50);
+		std::cout << ptrShopC[2];
+		Type(" | Amount: ", 50);
+		std::cout << ptrShopA[2];
+		// ITEM 3 END
+	}
+	else if (ptrPProfile[10] == 3)
+	{
+		//ITEM 3
+		Type("#3: ", 50);
+		std::cout << "Out Of Stock!";
+		Type(" | Cost: ", 50);
+		std::cout << ptrShopC[2];
+		Type(" | Amount: ", 50);
+		std::cout << ptrShopA[2];
+		// ITEM 3 END
+	}
 
 	std::cout << "\n\n";
 
@@ -277,6 +313,9 @@ void ShopOutput(std::string* ptrShopI, int* ptrShopA, int* ptrShopC)
 	Type(" | Amount: ", 50);
 	std::cout << ptrShopA[3];
 	// ITEM 4 END
+
+	Type("\n\nGold Balance: ", 30);
+	std::cout << ptrPProfile[9];
 }
 
 std::string Lowercase(std::string str) // CONVERT STRING TO LOWERCASE
