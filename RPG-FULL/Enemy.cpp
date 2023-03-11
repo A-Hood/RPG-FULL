@@ -32,7 +32,7 @@ int* EnemyProfile(int enemySpawnType)
 	{
 		enemyProfile[0] = 40; // HEALTH
 		enemyProfile[1] = 15; // MIN DAMAGE
-		enemyProfile[2] = 25; // MAX DAMAGE
+		enemyProfile[2] = 20; // MAX DAMAGE
 		enemyProfile[3] = 3; // ENEMY TYPE
 		enemyProfile[4] = 35; // MIN GOLD DROP
 		enemyProfile[5] = 50; // MAX GOLD DROP
