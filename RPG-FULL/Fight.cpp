@@ -373,7 +373,7 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 }
 
 // ENEMY LEVELS!
-// ENEMY HEALTH AND DAMAGE INCREASED DEPENDING ON ENEMY AMOUNT KILLES!
+// ENEMY HEALTH AND DAMAGE INCREASED DEPENDING ON AMOUNT OF ENEMY KILLS!
 
 int* EnemyLevels(int* ptrPProfile, int* ptrEProfile)
 {
