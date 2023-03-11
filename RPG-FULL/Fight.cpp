@@ -43,7 +43,9 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	Type("=!=!= ENCOUNTER ALERT =!=!=", 40);
 	std::cout << "\n\n";
 
-	std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+	std::this_thread::sleep_for(std::chrono::milliseconds(300)); // WAIT
+	ptrEProfile = EnemyLevels(ptrPProfile, ptrEProfile);
+	std::this_thread::sleep_for(std::chrono::milliseconds(300)); // WAIT
 	
 	Type("You encountered a ", 60);
 	Type(enemyName + "!", 150);
@@ -54,11 +56,40 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	
 	// PRESS ENTER
 	std::cin >> pause;
-	if (pause == "infmoney")
+
+
+	// TESTING CHEATS !! YIPPEE
+	if (pause == "cheats")
 	{
-		ptrPProfile[9] = 99999999;
+		bool adminMenu = true;
+		while (adminMenu == true)
+		{
+			std::string cheats = "";
+			int equalKills;
+			std::cout << "\n\nDev Menu !!\n\ninf\nsetkills\nleave\n\nChoice: ";
+			std::cin >> cheats;
+			if (cheats == "inf")
+			{
+				ptrPProfile[9] = 999999;
+				std::cout << "\nInfinite money activated!\n";
+			}
+			else if (cheats == "setkills")
+			{
+				std::cout << "How many kills?: ";
+				std::cin >> equalKills;
+				ptrPProfile[5] = equalKills;
+			}
+			else if (cheats == "leave")
+			{
+				std::cout << "\nExiting dev menu!\n";
+				adminMenu = false;
+				pause = ""; // EXITS CHEATS MENU
+			}
+		}
 	}
+	//  TESTING CHEATS END
 	pause = "";
+
 
 	// DEBUG! NOOOOOOOOOOOOOOOOOOOOOOO ITS GONE!!!
 	//std::cout << "\n\n=======================================\n\nDEBUG!!!\n\nArray Enemy Profile: " << ptrEProfile[0] << " " << ptrEProfile[1] << " " << ptrEProfile[2] << " " << ptrEProfile[3] << "\n\nEnemy Name: " << enemyName << "\n\nPlayer Array: " << ptrPProfile[0] << " " << ptrPProfile[1] << " " << ptrPProfile[2] << " " << ptrPProfile[3] << " " << ptrPProfile[4] << "\n\nPlayer Details Array: " << ptrPDetails[0] << " " << ptrPDetails[1] << "\n\n======================================\n";
@@ -67,7 +98,7 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
 	std::cout << "\n\n";
 	Type("=-=-=-=-=-=-=-=-FIGHT=INITIATED-=-=-=-=-=-=-=-=\n\n\nYou go first! ", 15);
-	Type("Would you like to: \n\n#1: Attack!\n#2: Dodge and heal!\n\nChoice: ", 80);
+	Type("Would you like to: \n\n#1: Attack!\n#2: Dodge and heal!\n\nChoice: ", 50);
 	std::cin >> attackChoice;
 	// FIRST ATTACK END
 	while (fight = true) // FIGHT OVER?
@@ -295,7 +326,11 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 				std::cout << "\n\n";
 				Type("You were attacked for ", 60);
 				std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
-				std::cout << eDamage;
+				
+				tempEDamage = eDamage * ptrUpgrades[1]; //
+				eDamage = round(tempEDamage); // 
+				std::cout << eDamage; //
+
 				std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
 				Type(" damage!", 60);
 				std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
@@ -323,7 +358,7 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 		}
 		
 		std::cout << "\n\n\n";
-		Type("It is your turn to attack again! What would you like to do?\n\n#1: Attack!\n#2: Dodge and heal!", 60);
+		Type("It is your turn to attack again! What would you like to do?\n\n#1: Attack!\n#2: Dodge and heal!", 50);
 		std::cout << "\n\n";
 		Type("You have ", 60);
 		std::cout << ptrPProfile[7];
@@ -335,4 +370,75 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	// ENCOUNTER OVER!
 
 	return ptrPProfile[0];
+}
+
+// ENEMY LEVELS!
+// ENEMY HEALTH AND DAMAGE INCREASED DEPENDING ON ENEMY AMOUNT KILLES!
+
+int* EnemyLevels(int* ptrPProfile, int* ptrEProfile)
+{
+	if (ptrPProfile[5] <= 3)
+	{
+		return ptrEProfile;
+	}
+
+	else if (ptrPProfile[5] > 3 && ptrPProfile[5] <= 6)
+	{
+		if (ptrPProfile[5] = 3)
+		{
+			Type("\nEnemies have been upgraded! DEBUG: 3-6\n", 40);
+		}
+		
+		for (int i = 0; i < 3; i++)
+		{
+			ptrEProfile[i] = ptrEProfile[i] * 1.1;
+		}
+	
+		return ptrEProfile;
+	}
+
+	else if (ptrPProfile[5] > 6 && ptrPProfile[5] <= 9)
+	{
+		if (ptrPProfile[5] = 6)
+		{
+			Type("\nEnemies have been upgraded! DEBUG: 6-9\n", 40);
+		}
+				
+		for (int i = 0; i < 3; i++)
+		{
+			ptrEProfile[i] = ptrEProfile[i] * 1.3;
+		}
+		
+		return ptrEProfile;
+	}
+	
+	else if (ptrPProfile[5] > 9 && ptrPProfile[5] <= 12)
+	{
+		if (ptrPProfile[5] = 9)
+		{
+			Type("\nEnemies have been upgraded! DEBUG: 9-12\n", 40);
+		}
+		
+		for (int i = 0; i < 3; i++)
+		{
+			ptrEProfile[i] = ptrEProfile[i] * 1.5;
+		}
+		
+		return ptrEProfile;
+	}
+	
+	else if (ptrPProfile[5] > 12 && ptrPProfile[5] <= 15)
+	{
+		if (ptrPProfile[5] = 9)
+		{
+			Type("\nEnemies have been upgraded! DEBUG: 12-15\n", 40);
+		}
+
+		for (int i = 0; i < 3; i++)
+		{
+			ptrEProfile[i] = ptrEProfile[i] * 1.7;
+		}
+
+		return ptrEProfile;
+	}
 }
