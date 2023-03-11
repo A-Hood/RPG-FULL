@@ -17,13 +17,13 @@ float* UpgradeCheck(int* ptrPProfile)
 	// WEAPON UPGRADE 1
 	else if (ptrPProfile[10] == 2)
 	{
-		upgradeArray[0] = 1.25;
+		upgradeArray[0] = 1.15;
 	}
 
 	// WEAPON UPGRADE 2
 	else if (ptrPProfile[10] == 3)
 	{
-		upgradeArray[0] = 1.5; 
+		upgradeArray[0] = 1.3; 
 	}
 	
 	// ================================================ ARMOUR
