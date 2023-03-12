@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bosses.cpp" />
     <ClCompile Include="DodgeChance.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Fight.cpp" />
