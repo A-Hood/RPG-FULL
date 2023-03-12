@@ -14,19 +14,16 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	bool pDead, eDead = false;
 	bool valid = false;
 	bool dodge = false;
-	int pDamage, eDamage;
+	int eDamage;
 	int attackChoice;
 	int speed;
 	bool failDodge = false;
 	bool heal = false;
 	std::string healChoice;
 	std::string pause;
-	float tempDamage, tempEDamage;
+	float tempEDamage;
 	int rngChestDrop;
 	// end of the mess shhhhhh...
-	
-	int* ptrDaggers;
-	int* ptrWand;
 
 	srand(time(NULL)); // SEEDING RANDOM NUM GENERATOR
 
@@ -109,98 +106,10 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 			// ATTACKING CHOICE
 			if (attackChoice == 1)
 			{
-				pDamage = rand() % (ptrPProfile[2] - ptrPProfile[1] - 1) + ptrPProfile[1]; // RANDOM NUMBER BETWEEN PLAYERS DAMAGEMAX AND DAMAGEMIN
-				if (ptrPDetails[1] == "daggers") // INITIATE DAGGER SPECIFICS FROM WEAPONSPECIFICS
-				{
-					ptrDaggers = Daggers();
-					std::cout << "\n\n";
-					Type("You attacked ", 60);
-					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
-					std::cout << ptrDaggers[1];
-					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
-					Type(" times!", 60);
-					std::cout << "\n";
-					Type("You dealt ", 60);
-					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
-
-					tempDamage = ptrDaggers[0] * ptrUpgrades[0];
-					pDamage = round(tempDamage);
-					std::cout << pDamage;
-
-					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
-					Type(" damage!", 60);
-
-					ptrEProfile[0] = ptrEProfile[0] - pDamage; // ENEMY HEALTH - pDamage
-
-					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-					std::cout << "\n\n";
-					Type("The enemy " + enemyName + " is on ", 60); 
-					std::cout << ptrEProfile[0];
-					Type(" health!\n\n", 60);
-					attackChoice = 0;
-					valid = true;
-					break;
-				}
-				else if (ptrPDetails[1] == "wand") // INITIATE WAND SPECIFICS FROM WEAPONSPECIFICS
-				{
-					ptrWand = Wand();
-					std::cout << "\n\n";
-					Type("You attacked ", 60);
-					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
-					std::cout << ptrWand[1];
-					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
-					Type(" times!\n", 60);
-					Type("You dealt ", 60);
-					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
-
-
-					tempDamage = ptrWand[0] * ptrUpgrades[0];
-					pDamage = round(tempDamage);
-					std::cout << pDamage;
-
-					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
-					Type(" damage!", 60);
-
-					ptrEProfile[0] = ptrEProfile[0] - pDamage; // ENEMY HEALTH - pDamage
-
-					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-					std::cout << "\n\n";
-					Type("The enemy " + enemyName + " is on ", 60);
-					std::cout << ptrEProfile[0];
-					Type(" health!\n\n", 60);
-					attackChoice = 0;
-					valid = true;
-					break;
-				}
-
-				else 
-				{
-					std::cout << "\n\n";
-					speed = 70;
-					Type("Your attack did ", speed);
-					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
-					
-					tempDamage = pDamage * ptrUpgrades[0];
-					pDamage = round(tempDamage);
-					std::cout << pDamage;
-
-					std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
-					Type(" damage!", 60);
-
-					ptrEProfile[0] = ptrEProfile[0] - pDamage; // ENEMY HEALTH - pDamage
-
-					std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
-					std::cout << "\n\n";
-					speed = 60;
-					Type("The enemy " + enemyName + " is on ", speed);
-					std::this_thread::sleep_for(std::chrono::milliseconds(200)); // WAIT
-					std::cout << ptrEProfile[0];
-					Type(" health!\n\n", speed);
-					std::this_thread::sleep_for(std::chrono::milliseconds(100));
-					std::cout << "\n";
-					attackChoice = 0;
-					valid = true;
-				}
+				ptrEProfile = PlayerAttack(ptrPProfile, ptrPDetails, ptrEProfile, ptrUpgrades, enemyName, valid, attackChoice);
+				attackChoice = 0;
+				valid = true;
+				break;
 			}
 
 			// BLOCKING CHOICE
@@ -446,6 +355,104 @@ int* EnemyLevels(int* ptrPProfile, int* ptrEProfile)
 		{
 			ptrEProfile[i] = ptrEProfile[i] * 1.7;
 		}
+
+		return ptrEProfile;
+	}
+}
+
+int* PlayerAttack(int* ptrPProfile, std::string* ptrPDetails, int* ptrEProfile, float* ptrUpgrades, std::string enemyName, bool valid, int attackChoice)
+{
+	int pDamage = 0;
+	float tempDamage;
+
+	int* ptrDaggers;
+	int* ptrWand;
+
+	pDamage = rand() % (ptrPProfile[2] - ptrPProfile[1] - 1) + ptrPProfile[1]; // RANDOM NUMBER BETWEEN PLAYERS DAMAGEMAX AND DAMAGEMIN
+	if (ptrPDetails[1] == "daggers") // INITIATE DAGGER SPECIFICS FROM WEAPONSPECIFICS
+	{
+		ptrDaggers = Daggers();
+		std::cout << "\n\n";
+		Type("You attacked ", 60);
+		std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+		std::cout << ptrDaggers[1];
+		std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+		Type(" times!", 60);
+		std::cout << "\n";
+		Type("You dealt ", 60);
+		std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+
+		tempDamage = ptrDaggers[0] * ptrUpgrades[0];
+		pDamage = round(tempDamage);
+		std::cout << pDamage;
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+		Type(" damage!", 60);
+
+		ptrEProfile[0] = ptrEProfile[0] - pDamage; // ENEMY HEALTH - pDamage
+
+		std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
+		std::cout << "\n\n";
+		Type("The enemy " + enemyName + " is on ", 60);
+		std::cout << ptrEProfile[0];
+		Type(" health!\n\n", 60);
+
+		return ptrEProfile;
+	}
+	else if (ptrPDetails[1] == "wand") // INITIATE WAND SPECIFICS FROM WEAPONSPECIFICS
+	{
+		ptrWand = Wand();
+		std::cout << "\n\n";
+		Type("You attacked ", 60);
+		std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+		std::cout << ptrWand[1];
+		std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+		Type(" times!\n", 60);
+		Type("You dealt ", 60);
+		std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+
+
+		tempDamage = ptrWand[0] * ptrUpgrades[0];
+		pDamage = round(tempDamage);
+		std::cout << pDamage;
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+		Type(" damage!", 60);
+
+		ptrEProfile[0] = ptrEProfile[0] - pDamage; // ENEMY HEALTH - pDamage
+
+		std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
+		std::cout << "\n\n";
+		Type("The enemy " + enemyName + " is on ", 60);
+		std::cout << ptrEProfile[0];
+		Type(" health!\n\n", 60);
+
+		return ptrEProfile;
+	}
+
+	else
+	{
+		std::cout << "\n\n";
+		Type("Your attack did ", 60);
+		std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+
+		tempDamage = pDamage * ptrUpgrades[0];
+		pDamage = round(tempDamage);
+		std::cout << pDamage;
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
+		Type(" damage!", 60);
+
+		ptrEProfile[0] = ptrEProfile[0] - pDamage; // ENEMY HEALTH - pDamage
+
+		std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
+		std::cout << "\n\n";
+		Type("The enemy " + enemyName + " is on ", 60);
+		std::this_thread::sleep_for(std::chrono::milliseconds(200)); // WAIT
+		std::cout << ptrEProfile[0];
+		Type(" health!\n\n", 60);
+		std::this_thread::sleep_for(std::chrono::milliseconds(100));
+		std::cout << "\n";
 
 		return ptrEProfile;
 	}
