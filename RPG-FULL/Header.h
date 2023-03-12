@@ -36,7 +36,7 @@ float* UpgradeCheck(int* ptrPProfile);
 
 int* EnemyLevels(int* ptrPProfile, int* ptrEProfile);
 
-int* PlayerAttack(int* ptrPProfile, std::string* ptrPDetails, int* ptrEProfile, float* ptrUpgrades, std::string enemyName, bool valid, int attackChoice);
+int* PlayerAttack(int* ptrPProfile, std::string* ptrPDetails, int* ptrEProfile, float* ptrUpgrades, std::string enemyName, int attackChoice);
 
 // CHEST TYPES
 
@@ -46,3 +46,10 @@ int* CommonChest(int* ptrPProfile, int chestType, int chestValue);
 int* RareChest(int* ptrPProfile, int chestType, int chestValue);
 int* LegendaryChest(int* ptrPProfile, int chestType, int chestValue);
 int* MythicalChest(int* ptrPProfile, int chestType, int chestValue);
+
+// BOSS FUNCTIONS
+
+int* Boss1(int* ptrPProfile, float* ptrUpgrades, std::string* ptrPDetails);
+int* PlayerAttackBoss(int* ptrPProfile, int* ptrBossOne, std::string* ptrPDetails, float* ptrUpgrades);
+int* BossRewards(int* ptrPProfile);
+int* BossOneAttack(int* ptrPProfile, int* ptrBossOne, float* ptrUpgrades, bool dodge, bool failDodge);

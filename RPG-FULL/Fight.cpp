@@ -36,6 +36,14 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	enemyName = EnemyName(ptrEProfile, enemyName); // GETS ENEMY NAME
 
 
+	// BOSS ENCOUNTER AFTER 6 KILLS
+	if (ptrPProfile[5] == 6 && ptrPProfile[12] == 0)
+	{
+		ptrPProfile = Boss1(ptrPProfile, ptrUpgrades, ptrPDetails);
+		return ptrPProfile[0];
+	}
+	// BOSS ENCOUNTER END
+
 	// ENCOUNTER BEGIN!
 	std::cout << "\n\n\n";
 	Type("=!=!= ENCOUNTER ALERT =!=!=", 40);
@@ -106,7 +114,7 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 			// ATTACKING CHOICE
 			if (attackChoice == 1)
 			{
-				ptrEProfile = PlayerAttack(ptrPProfile, ptrPDetails, ptrEProfile, ptrUpgrades, enemyName, valid, attackChoice);
+				ptrEProfile = PlayerAttack(ptrPProfile, ptrPDetails, ptrEProfile, ptrUpgrades, enemyName, attackChoice);
 				attackChoice = 0;
 				valid = true;
 				break;
@@ -184,6 +192,7 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 				{
 					Type("\n=!=!= ERROR =!=!=\n\nChoice invalid! Re-enter a correct choice: ", 30);
 					std::cin >> healChoice;
+					healChoice = Lowercase(healChoice);
 				}
 			}
 			heal = false;
@@ -294,16 +303,16 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 
 int* EnemyLevels(int* ptrPProfile, int* ptrEProfile)
 {
-	if (ptrPProfile[5] <= 3)
+	if (ptrPProfile[5] < 3)
 	{
 		return ptrEProfile;
 	}
 
-	else if (ptrPProfile[5] > 3 && ptrPProfile[5] <= 6)
+	else if (ptrPProfile[5] >= 3 && ptrPProfile[5] <= 5)
 	{
-		if (ptrPProfile[5] == 4)
+		if (ptrPProfile[5] == 3)
 		{
-			Type("\nEnemies have been upgraded! DEBUG: 3-6\n\n", 40);
+			Type("\nEnemies have been upgraded! DEBUG: 3-5\n\n", 40);
 		}
 		
 		for (int i = 0; i < 3; i++)
@@ -314,9 +323,9 @@ int* EnemyLevels(int* ptrPProfile, int* ptrEProfile)
 		return ptrEProfile;
 	}
 
-	else if (ptrPProfile[5] > 6 && ptrPProfile[5] <= 9)
+	else if (ptrPProfile[5] >= 6 && ptrPProfile[5] <= 8)
 	{
-		if (ptrPProfile[5] == 7)
+		if (ptrPProfile[5] == 6)
 		{
 			Type("\nEnemies have been upgraded! DEBUG: 6-9\n\n", 40);
 		}
@@ -329,9 +338,9 @@ int* EnemyLevels(int* ptrPProfile, int* ptrEProfile)
 		return ptrEProfile;
 	}
 	
-	else if (ptrPProfile[5] > 9 && ptrPProfile[5] <= 12)
+	else if (ptrPProfile[5] >= 9 && ptrPProfile[5] <= 11)
 	{
-		if (ptrPProfile[5] == 10)
+		if (ptrPProfile[5] == 9)
 		{
 			Type("\nEnemies have been upgraded! DEBUG: 9-12\n\n", 40);
 		}
@@ -344,9 +353,9 @@ int* EnemyLevels(int* ptrPProfile, int* ptrEProfile)
 		return ptrEProfile;
 	}
 	
-	else if (ptrPProfile[5] > 12 && ptrPProfile[5] <= 15)
+	else if (ptrPProfile[5] >= 12 && ptrPProfile[5] <= 14)
 	{
-		if (ptrPProfile[5] == 13)
+		if (ptrPProfile[5] == 12)
 		{
 			Type("\nEnemies have been upgraded! DEBUG: 12-15\n\n", 40);
 		}
@@ -360,7 +369,7 @@ int* EnemyLevels(int* ptrPProfile, int* ptrEProfile)
 	}
 }
 
-int* PlayerAttack(int* ptrPProfile, std::string* ptrPDetails, int* ptrEProfile, float* ptrUpgrades, std::string enemyName, bool valid, int attackChoice)
+int* PlayerAttack(int* ptrPProfile, std::string* ptrPDetails, int* ptrEProfile, float* ptrUpgrades, std::string enemyName, int attackChoice)
 {
 	int pDamage = 0;
 	float tempDamage;
