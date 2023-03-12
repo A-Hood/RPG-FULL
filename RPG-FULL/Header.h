@@ -35,3 +35,12 @@ int* EnemyRewards(int* ptrEProfile, int* ptrPProfile);
 float* UpgradeCheck(int* ptrPProfile);
 
 int* EnemyLevels(int* ptrPProfile, int* ptrEProfile);
+
+// CHEST TYPES
+
+int* ChestDrop(int* ptrPProfile);
+
+int* CommonChest(int* ptrPProfile, int chestType, int chestValue);
+int* RareChest(int* ptrPProfile, int chestType, int chestValue);
+int* LegendaryChest(int* ptrPProfile, int chestType, int chestValue);
+int* MythicalChest(int* ptrPProfile, int chestType, int chestValue);
