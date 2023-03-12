@@ -6,7 +6,7 @@
 int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, int playerMaxDamage, int weaponChoice, int dodgeChance)
 {
 	std::string str;
-	static int playerProfile[12];
+	static int playerProfile[13];
 	int speed = 60; // OUTPUT SPEED!
 	bool valid = false;
 
@@ -177,10 +177,11 @@ int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, i
 	playerProfile[5] = 0; // ENEMY KILLS!
 	playerProfile[6] = dodgeChance; // DODGE CHANCE
 	playerProfile[7] = 3; // HEALTH POTION AMOUNT
-	playerProfile[8] = playerHealth;
+	playerProfile[8] = playerHealth; // PLAYER MAX HEALTH
 	playerProfile[9] = 0; // GOLD AMOUNT
 	playerProfile[10] = 1; // Weapon Upgrade
 	playerProfile[11] = 1; // Armour Upgrade
+	playerProfile[12] = 0; // BOSS KILLS
 	// PLAYER PROFILE END
 
 	return playerProfile;
