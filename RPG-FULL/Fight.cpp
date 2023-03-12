@@ -22,6 +22,7 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	std::string healChoice;
 	std::string pause;
 	float tempDamage, tempEDamage;
+	int rngChestDrop;
 	// end of the mess shhhhhh...
 	
 	int* ptrDaggers;
@@ -30,7 +31,7 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	srand(time(NULL)); // SEEDING RANDOM NUM GENERATOR
 
 	int* ptrEProfile;
-	enemySpawnType = rand() % (3 - 1 + 1) + 1; // DECLARING RANDOM NUM FROM 1 TO 3 FOR ENEMY SPAWN TYPE	
+	enemySpawnType = rand() % (100 - 1 + 1) + 1; // DECLARING RANDOM NUM FROM 1 TO 100 FOR ENEMY SPAWN TYPE	
 
 	ptrEProfile = EnemyProfile(enemySpawnType); // PTR TO enemyProfile ARRAY
 	ptrUpgrades = UpgradeCheck(ptrPProfile);
@@ -280,6 +281,13 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 			eDead = false; // ENEMY DEAD
 			fight = false; // FIGHT OVER
 
+			rngChestDrop = rand() % (100 - 1 + 1) + 1;
+			if (rngChestDrop >= 1 && rngChestDrop <= 40) // 40% CHANCE FOR CHEST DROP
+			{
+				ptrPProfile = ChestDrop(ptrPProfile);
+			}
+			else if (rngChestDrop > 41) {}
+
 			ptrPProfile = Shop(ptrPProfile);
 			ptrUpgrades = UpgradeCheck(ptrPProfile);
 
@@ -384,9 +392,9 @@ int* EnemyLevels(int* ptrPProfile, int* ptrEProfile)
 
 	else if (ptrPProfile[5] > 3 && ptrPProfile[5] <= 6)
 	{
-		if (ptrPProfile[5] = 3)
+		if (ptrPProfile[5] == 4)
 		{
-			Type("\nEnemies have been upgraded! DEBUG: 3-6\n", 40);
+			Type("\nEnemies have been upgraded! DEBUG: 3-6\n\n", 40);
 		}
 		
 		for (int i = 0; i < 3; i++)
@@ -399,9 +407,9 @@ int* EnemyLevels(int* ptrPProfile, int* ptrEProfile)
 
 	else if (ptrPProfile[5] > 6 && ptrPProfile[5] <= 9)
 	{
-		if (ptrPProfile[5] = 6)
+		if (ptrPProfile[5] == 7)
 		{
-			Type("\nEnemies have been upgraded! DEBUG: 6-9\n", 40);
+			Type("\nEnemies have been upgraded! DEBUG: 6-9\n\n", 40);
 		}
 				
 		for (int i = 0; i < 3; i++)
@@ -414,9 +422,9 @@ int* EnemyLevels(int* ptrPProfile, int* ptrEProfile)
 	
 	else if (ptrPProfile[5] > 9 && ptrPProfile[5] <= 12)
 	{
-		if (ptrPProfile[5] = 9)
+		if (ptrPProfile[5] == 10)
 		{
-			Type("\nEnemies have been upgraded! DEBUG: 9-12\n", 40);
+			Type("\nEnemies have been upgraded! DEBUG: 9-12\n\n", 40);
 		}
 		
 		for (int i = 0; i < 3; i++)
@@ -429,9 +437,9 @@ int* EnemyLevels(int* ptrPProfile, int* ptrEProfile)
 	
 	else if (ptrPProfile[5] > 12 && ptrPProfile[5] <= 15)
 	{
-		if (ptrPProfile[5] = 9)
+		if (ptrPProfile[5] == 13)
 		{
-			Type("\nEnemies have been upgraded! DEBUG: 12-15\n", 40);
+			Type("\nEnemies have been upgraded! DEBUG: 12-15\n\n", 40);
 		}
 
 		for (int i = 0; i < 3; i++)
