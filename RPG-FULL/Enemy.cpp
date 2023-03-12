@@ -6,7 +6,7 @@ int* EnemyProfile(int enemySpawnType)
 	static int enemyProfile[6];
 
 	// BANDIT ENEMY TYPE !
-	if (enemySpawnType == 1)
+	if (enemySpawnType >= 1 && enemySpawnType <= 50) // 50% CHANCE OF BANDIT
 	{
 		enemyProfile[0] = 15; // HEALTH
 		enemyProfile[1] = 5; // MIN DAMAGE
@@ -17,7 +17,7 @@ int* EnemyProfile(int enemySpawnType)
 	}
 
 	// MERCANARY ENEMY TYPE !
-	else if (enemySpawnType == 2)
+	else if (enemySpawnType >= 51 && enemySpawnType <= 90) // 40% CHANCE OF MERCANARY
 	{
 		enemyProfile[0] = 25; // HEALTH
 		enemyProfile[1] = 10; // MIN DAMAGE
@@ -28,7 +28,7 @@ int* EnemyProfile(int enemySpawnType)
 	}
 
 	// TROLL ENEMY TYPE !
-	else if (enemySpawnType == 3)
+	else if (enemySpawnType >= 91 && enemySpawnType <= 100) // 10% CHANCE OF TROLL
 	{
 		enemyProfile[0] = 40; // HEALTH
 		enemyProfile[1] = 15; // MIN DAMAGE
