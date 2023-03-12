@@ -36,6 +36,8 @@ float* UpgradeCheck(int* ptrPProfile);
 
 int* EnemyLevels(int* ptrPProfile, int* ptrEProfile);
 
+int* PlayerAttack(int* ptrPProfile, std::string* ptrPDetails, int* ptrEProfile, float* ptrUpgrades, std::string enemyName, bool valid, int attackChoice);
+
 // CHEST TYPES
 
 int* ChestDrop(int* ptrPProfile);
