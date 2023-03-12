@@ -273,7 +273,7 @@ void ShopOutput(std::string* ptrShopI, int* ptrShopA, int* ptrShopC, int* ptrPPr
 		std::cout << "Out Of Stock!";
 		Type(" | Cost: ", 30);
 		std::cout << ptrShopC[1];
-		Type(" | Amount: ", );
+		Type(" | Amount: ", 30);
 		std::cout << ptrShopA[1];
 		// ITEM 2 END
 	}
