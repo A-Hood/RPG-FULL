@@ -29,8 +29,8 @@ int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, i
 			{
 				if (weaponChoice == 1)
 				{
-					playerMinDamage = 5;
-					playerMaxDamage = 10;
+					playerMinDamage = 10;
+					playerMaxDamage = 15;
 					break;
 				}
 
@@ -43,8 +43,8 @@ int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, i
 
 				else if (weaponChoice == 3)
 				{
-					playerMinDamage = 20;
-					playerMaxDamage = 25;
+					playerMinDamage = 10;
+					playerMaxDamage = 15;
 					break;
 				}
 				else if (weaponChoice < 1)
@@ -76,8 +76,8 @@ int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, i
 			{
 				if (weaponChoice == 1)
 				{
-					playerMinDamage = 15;
-					playerMaxDamage = 20;
+					playerMinDamage = 10;
+					playerMaxDamage = 15;
 					break;
 				}
 
@@ -114,7 +114,7 @@ int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, i
 		// MAGE CLASS CHOICE!
 		else if (characterChoice == 3)
 		{
-			playerHealth = 75;
+			playerHealth = 100;
 			dodgeChance = 2; // 1 IN 2 DODGE CHANCE
 			str = "\nWhat weapon do you wish to wield: \n\n#1: Staff\n#2: Wand\n#3: Runebook\n\nChoice: ";
 			Type(str, speed);
@@ -138,8 +138,8 @@ int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, i
 
 				else if (weaponChoice == 3)
 				{
-					playerMinDamage = 12;
-					playerMaxDamage = 17;
+					playerMinDamage = 10;
+					playerMaxDamage = 15;
 					break;
 				}
 				else if (weaponChoice < 1)
