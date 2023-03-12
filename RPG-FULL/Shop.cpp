@@ -284,7 +284,7 @@ void ShopOutput(std::string* ptrShopI, int* ptrShopA, int* ptrShopC, int* ptrPPr
 	{
 		//ITEM 3
 		Type("#3: ", 50);
-		std::cout << ptrShopI[2] << " " << ptrPProfile[10];
+		std::cout << ptrShopI[2] << " " << ptrPProfile[11];
 		Type(" | Cost: ", 50);
 		std::cout << ptrShopC[2];
 		Type(" | Amount: ", 50);
