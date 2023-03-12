@@ -135,6 +135,7 @@
     <ClCompile Include="LetterByLetter.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RNGDrops.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Upgrades.cpp" />
     <ClCompile Include="WeaponSpecifics.cpp" />
