@@ -245,11 +245,11 @@ int* Shop(int* ptrPProfile)
 void ShopOutput(std::string* ptrShopI, int* ptrShopA, int* ptrShopC, int* ptrPProfile)
 {
 	// ITEM 1
-	Type("#1: ", 50);
+	Type("#1: ", 30);
 	std::cout << ptrShopI[0];
-	Type(" | Cost: ", 50);
+	Type(" | Cost: ", 30);
 	std::cout << ptrShopC[0];
-	Type(" | Amount: ", 50);
+	Type(" | Amount: ", 30);
 	std::cout << ptrShopA[0];
 	// ITEM 1 END
 
@@ -258,22 +258,22 @@ void ShopOutput(std::string* ptrShopI, int* ptrShopA, int* ptrShopC, int* ptrPPr
 	if (ptrPProfile[10] < 3)
 	{
 		//ITEM 2
-		Type("#2: ", 50);
+		Type("#2: ", 30);
 		std::cout << ptrShopI[1] << " " << ptrPProfile[10];
-		Type(" | Cost: ", 50);
+		Type(" | Cost: ", 30);
 		std::cout << ptrShopC[1];
-		Type(" | Amount: ", 50);
+		Type(" | Amount: ", 30);
 		std::cout << ptrShopA[1];
 		// ITEM 2 END
 	}
 	else if (ptrPProfile[10] == 3)
 	{
 		//ITEM 2
-		Type("#2: ", 50);
+		Type("#2: ", 30);
 		std::cout << "Out Of Stock!";
-		Type(" | Cost: ", 50);
+		Type(" | Cost: ", 30);
 		std::cout << ptrShopC[1];
-		Type(" | Amount: ", 50);
+		Type(" | Amount: ", );
 		std::cout << ptrShopA[1];
 		// ITEM 2 END
 	}
@@ -283,22 +283,22 @@ void ShopOutput(std::string* ptrShopI, int* ptrShopA, int* ptrShopC, int* ptrPPr
 	if (ptrPProfile[10] < 3)
 	{
 		//ITEM 3
-		Type("#3: ", 50);
+		Type("#3: ", 30);
 		std::cout << ptrShopI[2] << " " << ptrPProfile[11];
-		Type(" | Cost: ", 50);
+		Type(" | Cost: ", 30);
 		std::cout << ptrShopC[2];
-		Type(" | Amount: ", 50);
+		Type(" | Amount: ", 30);
 		std::cout << ptrShopA[2];
 		// ITEM 3 END
 	}
 	else if (ptrPProfile[10] == 3)
 	{
 		//ITEM 3
-		Type("#3: ", 50);
+		Type("#3: ", 30);
 		std::cout << "Out Of Stock!";
-		Type(" | Cost: ", 50);
+		Type(" | Cost: ", 30);
 		std::cout << ptrShopC[2];
-		Type(" | Amount: ", 50);
+		Type(" | Amount: ", 30);
 		std::cout << ptrShopA[2];
 		// ITEM 3 END
 	}
@@ -306,11 +306,11 @@ void ShopOutput(std::string* ptrShopI, int* ptrShopA, int* ptrShopC, int* ptrPPr
 	std::cout << "\n\n";
 
 	//ITEM 4
-	Type("#4: ", 50);
+	Type("#4: ", 30);
 	std::cout << ptrShopI[3];
-	Type(" | Cost: ", 50);
+	Type(" | Cost: ", 30);
 	std::cout << ptrShopC[3];
-	Type(" | Amount: ", 50);
+	Type(" | Amount: ", 30);
 	std::cout << ptrShopA[3];
 	// ITEM 4 END
 
