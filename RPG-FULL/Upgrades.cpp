@@ -29,19 +29,19 @@ float* UpgradeCheck(int* ptrPProfile)
 	// ================================================ ARMOUR
 
 	// ARMOUR NOT UPGRADED
-	if (ptrPProfile[10] == 1)
+	if (ptrPProfile[11] == 1)
 	{
 		upgradeArray[1] = 1;
 	}
 
 	// ARMOUR UPGRADE 1
-	else if (ptrPProfile[10] == 2)
+	else if (ptrPProfile[11] == 2)
 	{
 		upgradeArray[1] = 0.8;
 	}
 
 	// ARMOUR UPGRADE 2
-	else if (ptrPProfile[10] == 3)
+	else if (ptrPProfile[11] == 3)
 	{
 		upgradeArray[1] = 0.6; 
 	}
