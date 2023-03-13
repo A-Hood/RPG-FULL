@@ -327,7 +327,7 @@ int* EnemyLevels(int* ptrPProfile, int* ptrEProfile)
 	{
 		if (ptrPProfile[5] == 6)
 		{
-			Type("\nEnemies have been upgraded! DEBUG: 6-9\n\n", 40);
+			Type("\nYou feel the ground shake as you emerge!\nEnemies have been upgraded!\n\n", 40);
 		}
 				
 		for (int i = 0; i < 3; i++)
