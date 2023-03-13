@@ -56,6 +56,12 @@ int* Boss1(int* ptrPProfile, float* ptrUpgrades, std::string* ptrPDetails)
 	std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
 	Type("\n\nAre you ready for the fight? (Press any letter and then press enter!) ", 30);
 	std::cin >> pause;
+
+	if (pause == "killboss")
+	{
+		bossOne[0] = 0;
+		std::cout << "\n\nBoss killed!\n\n";
+	}
 	pause = "";
 
 /*============================================================ FIGHT START ============================================================*/
