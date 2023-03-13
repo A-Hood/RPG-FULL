@@ -4,11 +4,11 @@ int* PlayerProfile(int characterChoice, int playerHealth, int playerMinDamage, i
 
 std::string* PlayerDetails(int* ptrPProfile);
 
-int* EnemyProfile(int enemySpawnType);
+int* EnemyProfile(int enemySpawnType, int* ptrPProfile);
 
 int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int enemySpawnType);
 
-std::string EnemyName(int* ptrEProfile, std::string enemyName);
+std::string EnemyName(int* ptrEProfile, std::string enemyName, int* ptrPProfile);
 
 int* Wand();
 
@@ -53,3 +53,5 @@ int* Boss1(int* ptrPProfile, float* ptrUpgrades, std::string* ptrPDetails);
 int* PlayerAttackBoss(int* ptrPProfile, int* ptrBossOne, std::string* ptrPDetails, float* ptrUpgrades);
 int* BossRewards(int* ptrPProfile);
 int* BossOneAttack(int* ptrPProfile, int* ptrBossOne, float* ptrUpgrades, bool dodge, bool failDodge);
+
+int* ThiefFight(int* ptrPProfile, std::string* ptrPDetails, int* ptrEProfile, float* ptrUpgrades, std::string enemyName, int attackChoice);
