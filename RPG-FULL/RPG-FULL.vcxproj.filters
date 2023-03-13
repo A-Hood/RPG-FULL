@@ -54,6 +54,9 @@
     <ClCompile Include="Bosses.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Thief.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">

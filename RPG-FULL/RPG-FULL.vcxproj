@@ -138,6 +138,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RNGDrops.cpp" />
     <ClCompile Include="Shop.cpp" />
+    <ClCompile Include="Thief.cpp" />
     <ClCompile Include="Upgrades.cpp" />
     <ClCompile Include="WeaponSpecifics.cpp" />
   </ItemGroup>
