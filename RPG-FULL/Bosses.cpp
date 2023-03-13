@@ -135,35 +135,10 @@ int* Boss1(int* ptrPProfile, float* ptrUpgrades, std::string* ptrPDetails)
 			Type("!", 40);
 			std::this_thread::sleep_for(std::chrono::milliseconds(500)); // WAIT
 			Type("\n\nYou have killed your first boss!\n\nGood job!", 30);
-			Type("\n\nYou are on ", 30);
-			std::cout << ptrPProfile[0];
-			Type(" health, use a health potion? (Yes or No): ", 30);
-			std::cin >> healChoice;
-			healChoice = Lowercase(healChoice);
-
-			while (heal == false)
-			{
-
-				if (healChoice == "yes")
-				{
-					Heal(ptrPProfile);
-					heal = true;
-				}
-				else if (healChoice == "no")
-				{
-					Type("\n\nYou chose not to heal!", 30);
-					heal = true;
-				}
-				else if (!(healChoice == "yes") && !(healChoice == "no"))
-				{
-					Type("\n=!=!= ERROR =!=!=\n\nChoice invalid! Re-enter a correct choice: ", 30);
-					std::cin >> healChoice;
-					healChoice = Lowercase(healChoice);
-				}
-			}
-			heal = false;
 			ptrPProfile[12] = ptrPProfile[12] + 1;
 			fight = false;
+
+			ptrPProfile = Shop(ptrPProfile);
 
 			return ptrPProfile;
 		}
