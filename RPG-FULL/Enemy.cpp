@@ -65,9 +65,9 @@ int* EnemyProfile(int enemySpawnType, int* ptrPProfile)
 		// SPIDER ENEMY TYPE !
 		else if (enemySpawnType >= 41 && enemySpawnType <= 70) // 30% CHANCE OF SPIDER
 		{
-			enemyProfile[0] = 15; // HEALTH
-			enemyProfile[1] = 5; // MIN DAMAGE
-			enemyProfile[2] = 8; // MAX DAMAGE
+			enemyProfile[0] = 20; // HEALTH
+			enemyProfile[1] = 10; // MIN DAMAGE
+			enemyProfile[2] = 15; // MAX DAMAGE
 			enemyProfile[3] = 2; // ENEMY TYPE
 			enemyProfile[4] = 20; // MIN GOLD DROP
 			enemyProfile[5] = 30; // MAX GOLD DROP
@@ -78,9 +78,9 @@ int* EnemyProfile(int enemySpawnType, int* ptrPProfile)
 		// MINOTAUR ENEMY TYPE !
 		else if (enemySpawnType >= 71 && enemySpawnType <= 80) // 10% CHANCE OF MINOTAUR
 		{
-			enemyProfile[0] = 15; // HEALTH
-			enemyProfile[1] = 5; // MIN DAMAGE
-			enemyProfile[2] = 8; // MAX DAMAGE
+			enemyProfile[0] = 30; // HEALTH
+			enemyProfile[1] = 15; // MIN DAMAGE
+			enemyProfile[2] = 20; // MAX DAMAGE
 			enemyProfile[3] = 3; // ENEMY TYPE
 			enemyProfile[4] = 20; // MIN GOLD DROP
 			enemyProfile[5] = 30; // MAX GOLD DROP
