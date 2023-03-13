@@ -30,10 +30,10 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	int* ptrEProfile;
 	enemySpawnType = rand() % (100 - 1 + 1) + 1; // DECLARING RANDOM NUM FROM 1 TO 100 FOR ENEMY SPAWN TYPE	
 
-	ptrEProfile = EnemyProfile(enemySpawnType); // PTR TO enemyProfile ARRAY
+	ptrEProfile = EnemyProfile(enemySpawnType, ptrPProfile); // PTR TO enemyProfile ARRAY
 	ptrUpgrades = UpgradeCheck(ptrPProfile);
 
-	enemyName = EnemyName(ptrEProfile, enemyName); // GETS ENEMY NAME
+	enemyName = EnemyName(ptrEProfile, enemyName, ptrPProfile); // GETS ENEMY NAME
 
 
 	// BOSS ENCOUNTER AFTER 6 KILLS
@@ -98,7 +98,10 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 
 
 	// DEBUG! NOOOOOOOOOOOOOOOOOOOOOOO ITS GONE!!!
-	//std::cout << "\n\n=======================================\n\nDEBUG!!!\n\nArray Enemy Profile: " << ptrEProfile[0] << " " << ptrEProfile[1] << " " << ptrEProfile[2] << " " << ptrEProfile[3] << "\n\nEnemy Name: " << enemyName << "\n\nPlayer Array: " << ptrPProfile[0] << " " << ptrPProfile[1] << " " << ptrPProfile[2] << " " << ptrPProfile[3] << " " << ptrPProfile[4] << "\n\nPlayer Details Array: " << ptrPDetails[0] << " " << ptrPDetails[1] << "\n\n======================================\n";
+	if (ptrPProfile[12] == 1)
+	{
+		std::cout << "\n\n=======================================\n\nDEBUG!!!\n\nArray Enemy Profile: " << ptrEProfile[0] << " " << ptrEProfile[1] << " " << ptrEProfile[2] << " " << ptrEProfile[3] << " " << ptrEProfile[4] << " " << ptrEProfile[5] << " " << ptrEProfile[6] << " " << ptrEProfile[7] << "\n\nEnemy Name: " << enemyName << "\n\nPlayer Array: " << ptrPProfile[0] << " " << ptrPProfile[1] << " " << ptrPProfile[2] << " " << ptrPProfile[3] << " " << ptrPProfile[4] << "\n\nPlayer Details Array: " << ptrPDetails[0] << " " << ptrPDetails[1] << "\n\n======================================\n";
+	}
 	
 	// FIRST ATTACK
 	std::this_thread::sleep_for(std::chrono::seconds(1)); // WAIT
@@ -109,6 +112,18 @@ int Fight(int* ptrPProfile, std::string* ptrPDetails, std::string enemyName, int
 	// FIRST ATTACK END
 	while (fight = true) // FIGHT OVER?
 	{
+
+		if (enemyName == "thief") // IF THIEF, RUN THIS
+		{
+			// thief fight goes here
+			ptrPProfile = ThiefFight(ptrPProfile, ptrPDetails, ptrEProfile, ptrUpgrades, enemyName, attackChoice);
+
+			ptrUpgrades = UpgradeCheck(ptrPProfile);
+
+			return ptrPProfile[0];
+		}
+
+		// IF NOT THIEF vv RUN THIS
 		while (valid == false) // CHOICE IS VALID?
 		{
 			// ATTACKING CHOICE
@@ -353,7 +368,7 @@ int* EnemyLevels(int* ptrPProfile, int* ptrEProfile)
 		return ptrEProfile;
 	}
 	
-	else if (ptrPProfile[5] >= 12 && ptrPProfile[5] <= 14)
+	else if (ptrPProfile[5] >= 12) //&& ptrPProfile[5] <= 14)
 	{
 		if (ptrPProfile[5] == 12)
 		{
@@ -365,6 +380,11 @@ int* EnemyLevels(int* ptrPProfile, int* ptrEProfile)
 			ptrEProfile[i] = ptrEProfile[i] * 1.7;
 		}
 
+		return ptrEProfile;
+	}
+
+	else
+	{
 		return ptrEProfile;
 	}
 }
